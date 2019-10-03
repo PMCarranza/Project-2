@@ -1,9 +1,12 @@
-// npm init -y ran
+// ran npm init -y
 // express installed, express-session installed 
 // passport, passport-local, mysql, mysql2, sequelize, installed 
 // bcryptjs installed
 // sequelize-cli installed
 // 10-02-19  6:15pm
+
+
+// *** Dependencies
 
 // Requiring necessary npm packages
 var express = require("express");
@@ -16,6 +19,7 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
+// Sets up the Express App
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,6 +38,6 @@ require("./routes/api-routes.js")(app);
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT);
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT );
   });
 });

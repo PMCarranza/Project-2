@@ -11,7 +11,8 @@ var db        = {};
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-  var sequelize = new Sequelize(config.database, config.name, config.nickname, config.password, config.comments, config,);
+  // ,{dialect:mysql} after config before the closing parenthesis?? https://sequelize.org/master/manual/dialects.html
+  var sequelize = new Sequelize(config.database, config.name, config.nickname, config.password, config.comments, config);
 }
 
 fs
