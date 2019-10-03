@@ -1,5 +1,8 @@
-// npm init -y ran 10-02 5pm
-// express installed 10-02 5pm
+// npm init -y ran
+// express installed, express-session installed 
+// passport, passport-local, mysql, mysql2, sequelize, installed 
+// bcryptjs installed
+// 10-02-19  5:10pm
 
 // Requiring necessary npm packages
 var express = require("express");
@@ -24,6 +27,8 @@ app.use(passport.session());
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+
+// console.log('port--> ', PORT);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

@@ -12,13 +12,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "2.4.3",
-    "express": "^4.17.0",
-    "express-session": "^1.16.1",
-    "mysql2": "^1.6.5",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "save": "^2.4.0",
+    "sequelize": "^5.19.2",
+    "sequelize-cli": "^5.5.1"
   },
   "repository": {
     "type": "git",
@@ -27,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/PMCarranza/Project-2/issues"
   },
-  "homepage": "https://github.com/PMCarranza/Project-2#readme"
+  "homepage": "https://github.com/PMCarranza/Project-2#readme",
+  "devDependencies": {}
 }
