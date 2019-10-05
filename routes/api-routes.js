@@ -1,49 +1,23 @@
-// Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
+console.log('api-routes.js');
+var keys = require("../keys");
 
-module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json(req.user);
-  });
+module.exports = function (app) {
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(function() {
-        res.redirect(307, "/api/login");
-      })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
-  });
+    app.post("/api/queryUrl", function (req, res) {
 
-  // Route for logging user out
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
+        console.log('api-routes--> req.body', req.body.query);
+        // console.log('api-routes--> res', res);
+        var queryStr = JSON.stringify(req.body.query);
 
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
-    }
-  });
+        var queryURL = "developer.nps.gov/api/v1/campgrounds?stateCode=WA &limit5&api_key=" + keys.npsKey.id + "&q=" + queryStr;
+        
+        console.log(queryURL);
+
+
+        app.get(queryURL, function (req2, res2) {
+            console.log('api-routes--> res2', res2);
+            console.log('api-routes --> req2', req2);
+            req2.json('api-routes --> res2', res2);
+        })
+    });
 };
