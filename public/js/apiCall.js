@@ -1,21 +1,23 @@
 'use strict';
 console.log('apiCall.js');
 
-var apiKey = require('keys.js');
+// var apiKey = require('keys.js');
 
 $("#get-info").on("click", function () {
     event.preventDefault();
 
     // var camp = $('#camp:checkbox').val();
-    var camp = $('#camp').val();
-    var access = $('#access').val();
-    var rv = $('#rv').val();
-    var directions = $('#directions').val();
-    var water = $('#water').val();
-    var firewood = $('#firewood').val();
-    var bathrooms = $('#bathrooms').val();
-    var shower = $('#shower').val();
-    var cell = $('#cell').val();
+    // $( "select#foo option:checked" ).val();  FROM JQUERY DOC
+    var camp = $('#camp:checked').val();
+    console.log(camp);
+    var access = $('#access:checked').val();
+    var rv = $('#rv:checked').val();
+    var directions = $('#directions:checked').val();
+    var water = $('#water:checked').val();
+    var firewood = $('#firewood:checked').val();
+    var bathrooms = $('#bathrooms:checked').val();
+    var shower = $('#shower:checked').val();
+    var cell = $('#cell:checked').val();
 
     var state = 'WA';
 
@@ -25,7 +27,7 @@ $("#get-info").on("click", function () {
     // https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=JLpq6B36fmBiohHC1v9ac6N43DLpgUvkGSau7puz
 
     // store the API url that we tested via the docs
-    var queryURL = "developer.nps.gov/api/v1/campgrounds?stateCode=" + state + "&limit5&api_key=" + apiKey;
+    var queryURL = "developer.nps.gov/api/v1/campgrounds?stateCode=" + state + "&limit5&api_key=JLpq6B36fmBiohHC1v9ac6N43DLpgUvkGSau7puz";
 
     // use jquery ajax method
     // Asynchronous JavaScript and XML
