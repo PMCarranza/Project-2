@@ -4,8 +4,19 @@ console.log('apiCall.js');
 var apiKey = require('keys.js');
 
 $("#get-info").on("click", function () {
+    event.preventDefault();
 
-    // use jquery $ to select 'this' button html object and use .attr() to capture the value of the data-state name
+    // var camp = $('#camp:checkbox').val();
+    var camp = $('#camp').val();
+    var access = $('#access').val();
+    var rv = $('#rv').val();
+    var directions = $('#directions').val();
+    var water = $('#water').val();
+    var firewood = $('#firewood').val();
+    var bathrooms = $('#bathrooms').val();
+    var shower = $('#shower').val();
+    var cell = $('#cell').val();
+
     var state = 'WA';
 
     // ex.
