@@ -6,7 +6,8 @@ module.exports = function (sequelize, DataTypes) {
         },
         comments: {
             type: DataTypes.TEXT,
-            allowNull: true
+            allowNull: true,
+            len:[1, 500]
         }
     });
 
