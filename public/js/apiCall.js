@@ -1,8 +1,9 @@
 'use strict';
+console.log('apiCall.js');
 
-var apiKey = require('keys');
+var apiKey = require('keys.js');
 
-$("button").on("click", function () {
+$("#get-info").on("click", function () {
 
     // use jquery $ to select 'this' button html object and use .attr() to capture the value of the data-state name
     var state = 'WA';
@@ -10,11 +11,10 @@ $("button").on("click", function () {
     // ex.
     // state => 'WA'
 
-    https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=JLpq6B36fmBiohHC1v9ac6N43DLpgUvkGSau7puz
+    // https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=JLpq6B36fmBiohHC1v9ac6N43DLpgUvkGSau7puz
 
     // store the API url that we tested via the docs
-    var queryURL = "developer.nps.gov/api/v1/campgrounds?stateCode=" +
-        state + "&limit5&api_key=" + apiKey;
+    var queryURL = "developer.nps.gov/api/v1/campgrounds?stateCode=" + state + "&limit5&api_key=" + apiKey;
 
     // use jquery ajax method
     // Asynchronous JavaScript and XML

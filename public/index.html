@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Adventure finder</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Adventure finder!</h1>
+    <p>a donde?</p>
+
+    <form id="user-form">
+        <ul>
+            <li><input type="checkbox" name="campsite" value="camping" id="camp"> Camping</li>
+            <li><input type="checkbox" name="access" value="accessible" id="access"> Easily accessible</li>
+            <li><input type="checkbox" name="access" value="accessible" id="rv"> RV info</li>
+            <li><input type="checkbox" name="directions" value="direction" id="directions"> Directions</li>
+            <li><input type="checkbox" name="water" value="water" id="water"> Potable water</li>
+            <li><input type="checkbox" name="firewood" value="firewood" id="firewood"> Smores</li>
+            <li><input type="checkbox" name="toilets" value="toilet" id="bathrooms"> Toilets</li>
+            <li><input type="checkbox" name="showers" value="shower" id="shower"> Showers</li>
+            <li><input type="checkbox" name="cellphone" value="cell" id="cell"> Cellphone reception</li>
+        </ul>
+        <input type="submit" id="get-info">
+
+
+    </form>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/apiCall.js"></script>
+</body>
+
+</html>
