@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 console.log('apiCall.js');
 
 // var apiKey = require('keys.js');
@@ -6,8 +6,8 @@ console.log('apiCall.js');
 $("#get-info").on("click", function () {
     event.preventDefault();
 
-    // var camp = $('#camp:checkbox').val();
-    // $( "select#foo option:checked" ).val();  FROM JQUERY DOC
+// $('id:checked') is used to extract the value from the checked box in index.html
+    
     var camp = $('#camp:checked').val();
     console.log(camp);
     var access = $('#access:checked').val();
