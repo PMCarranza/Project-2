@@ -32,15 +32,6 @@ $("#get-info").on("click", function () {
     }).get().join("%20");
     console.log('apiCall--> line 30--> query', query);
 
-    // $("type:checkbox").click(function () {
-    //     if ($(this).is(":checked")) {
-    //         console.log(this);
-    //         query.push($(this).val());
-    //         console.log(query);
-    //     };
-    // });
-    // console.log(query);
-
             // use jquery ajax method
             // Asynchronous JavaScript and XML
             // asynchronous operations run outside of the natural flow of javaScript's single threaded nature
