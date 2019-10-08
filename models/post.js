@@ -10,7 +10,8 @@ module.exports = function (sequelize, DataTypes) {
             validate:
             {
                 len: [1, 500]
-            }},
+            }
+        },
         UserId: {
             type: DataTypes.INTEGER,
             allowNull: false

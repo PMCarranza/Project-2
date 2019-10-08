@@ -42,9 +42,9 @@ module.exports = function (app) {
         // }).then
 
         db.User.create({
-            name: "Marvin Vega",
-            email: 'marvin@hotmail.com',
-            password: 'a1b2c3d4'
+            name: "Donald Poz",
+            email: 'donald.poz@gmail.com',
+            password: 'z0x9y8w7'
         }).then(function (data) {
             res.json(data);
         })
@@ -60,9 +60,8 @@ module.exports = function (app) {
 
         db.Post.create({
             cat: 'Persian',
-
             comments: 'The Persian cat is a long-haired breed of cat characterized by its round face and short muzzle. It is also known as the "Persian Longhair" in the English-speaking countries. In the Middle East, region they are widely known as "Iranian cat" and in Iran they are known as "Shiraz cat".',
-            UserId: 3
+            UserId: 1
         }).then(function (data) {
             res.json(data);
         })
