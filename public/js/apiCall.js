@@ -7,30 +7,32 @@ console.log('apiCall.js');
 // var query = [];
 
 // try one
-var checkboxSelector = $("input[type='checkbox']");
+// var checkboxSelector = $("input[type='checkbox']");
 
-$("#get-info").on("click", function () {
+$("#get-cat").on("click", function () {
     event.preventDefault();
 
     // $('id:checked') is used to extract the value from the checked box in index.html
 
-    var camp = $('#camping:checked').val();
-    // console.log(camp);
-    var access = $('#access:checked').val();
-    var rv = $('#rv:checked').val();
-    var directions = $('#directions:checked').val();
-    var water = $('#water:checked').val();
-    var firewood = $('#firewood:checked').val();
-    var bathrooms = $('#bathrooms:checked').val();
-    var shower = $('#shower:checked').val();
-    var cell = $('#cell:checked').val();
+    var catBreed = $('#cat-breed').val().trim();
+    console.log(catBreed);
+    // var access = $('#access:checked').val();
+    // var rv = $('#rv:checked').val();
+    // var directions = $('#directions:checked').val();
+    // var water = $('#water:checked').val();
+    // var firewood = $('#firewood:checked').val();
+    // var bathrooms = $('#bathrooms:checked').val();
+    // var shower = $('#shower:checked').val();
+    // var cell = $('#cell:checked').val();
 
     // try one
     // var query = checkboxSelector.filter(":checked")//.val();
-    var query = $("input[type=checkbox]:checked").map(function () {
-        return this.value;
-    }).get().join("%20");
-    console.log('apiCall--> line 30--> query', query);
+
+    var query = catBreed;
+    // var query = $("input[type=checkbox]:checked").map(function () {
+    //     return this.value;
+    // }).get().join("%20");
+    console.log('apiCall--> line 30--> query ', query);
 
             // use jquery ajax method
             // Asynchronous JavaScript and XML
@@ -39,7 +41,7 @@ $("#get-info").on("click", function () {
             $.ajax({
                 // pass in the queryURL
                 url: "/api/queryUrl",
-                data: {query},
+                data: {q:query},
                 // execute a GET method to retrieve information
                 method: "POST"
             })
@@ -47,14 +49,11 @@ $("#get-info").on("click", function () {
                 // .then() will execute our callback function
                 // store the data that comes back from the api as response
                 .then(function (response) {
-                    console.log('apiCall--> response', response);
+                    console.log(response);
 
                     var results = response.data;
                     console.log('results should show up below');
-                    console.log('apiCall--> results', results);
+                    console.log(results);
                     // input from user will be captured below.
-
-
-
                 });
         });

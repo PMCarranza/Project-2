@@ -1,13 +1,19 @@
 module.exports = function (sequelize, DataTypes) {
     var Post = sequelize.define('Post', {
-        park: {
+        cat: {
             type: DataTypes.STRING,
             allowNull: false
         },
         comments: {
             type: DataTypes.TEXT,
             allowNull: true,
-            len:[1, 500]
+            validate:
+            {
+                len: [1, 500]
+            }},
+        UserId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     });
 
