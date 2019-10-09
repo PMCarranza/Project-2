@@ -1,59 +1,51 @@
 // 'use strict';
 console.log('apiCall.js');
 
-// var apiKey = require('keys.js');
-
-// try two
-// var query = [];
-
-// try one
-// var checkboxSelector = $("input[type='checkbox']");
-
 $("#get-cat").on("click", function () {
     event.preventDefault();
 
-    // $('id:checked') is used to extract the value from the checked box in index.html
 
     var catBreed = $('#cat-breed').val().trim();
     console.log(catBreed);
-    // var access = $('#access:checked').val();
-    // var rv = $('#rv:checked').val();
-    // var directions = $('#directions:checked').val();
-    // var water = $('#water:checked').val();
-    // var firewood = $('#firewood:checked').val();
-    // var bathrooms = $('#bathrooms:checked').val();
-    // var shower = $('#shower:checked').val();
-    // var cell = $('#cell:checked').val();
-
-    // try one
-    // var query = checkboxSelector.filter(":checked")//.val();
 
     var query = catBreed;
-    // var query = $("input[type=checkbox]:checked").map(function () {
-    //     return this.value;
-    // }).get().join("%20");
+
     console.log('apiCall--> line 30--> query ', query);
 
-            // use jquery ajax method
-            // Asynchronous JavaScript and XML
-            // asynchronous operations run outside of the natural flow of javaScript's single threaded nature
+    // use jquery ajax method
+    // Asynchronous JavaScript and XML
+    // asynchronous operations run outside of the natural flow of javaScript's single threaded nature
 
-            $.ajax({
-                // pass in the queryURL
-                url: "/api/queryUrl",
-                data: {q:query},
-                // execute a GET method to retrieve information
-                method: "POST"
-            })
-                // .then() => executing after the successful completion of our ajax call
-                // .then() will execute our callback function
-                // store the data that comes back from the api as response
-                .then(function (response) {
-                    console.log(response);
-
-                    var results = response.data;
-                    console.log('results should show up below');
-                    console.log(results);
-                    // input from user will be captured below.
-                });
+    $.ajax({
+        // pass in the queryURL
+        url: "/api/queryUrl",
+        data: { q: query },
+        // execute a POST method to retrieve information
+        method: "POST"
+    })
+        // .then() => executing after the successful completion of our ajax call
+        // .then() will execute our callback function
+        // store the data that comes back from the api as result
+        .then(function (result) {
+            // console.log(result);
+            var results = result;
+            console.log('results should show up below');
+            // answer from api will be shown below.
+            console.log(results.name);
         });
+
+    var catName = $('<p id= "cat-name"></p>');
+    console.log('cat name is --> ', catName);
+
+    var catTemperament = $('<p id= "cat-temp"></p>');
+
+    var catOrigin = $('<p id= "cat-origin"></p>');
+
+    var catDescription = $('<p id= "cat-desc"></p>');
+
+
+    $('#cats-here').append(catName, catTemperament, catOrigin, catDescription);
+
+
+
+});

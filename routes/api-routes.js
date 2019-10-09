@@ -26,11 +26,20 @@ module.exports = function (app) {
         //     console.log('req2 --> ', req2);
         // })
 
-        axios.get(queryURL
+        axios.get (queryURL
             // execute a GET method to retrieve information
         ).then(result => {
-            console.log(result.data[0].name)
-        })
+            console.log('result length --> ', result.data.length);
+            for (var i = 0; i < result.data.length; i++) {
+                console.log('i --> ', i);
+                console.log(result.data[i].name);
+                console.log(result.data[i].temperament);
+                console.log(result.data[i].origin);
+
+                console.log(result.data[i].description);
+                res.json(result.data[i]);
+            };
+        });
     });
 
     app.post("/api/addData", function (req, res) {
@@ -47,7 +56,7 @@ module.exports = function (app) {
             password: 'z0x9y8w7'
         }).then(function (data) {
             res.json(data);
-        })
+        });
 
     });
 
@@ -64,7 +73,7 @@ module.exports = function (app) {
             UserId: 1
         }).then(function (data) {
             res.json(data);
-        })
+        });
 
     });
 
@@ -72,7 +81,7 @@ module.exports = function (app) {
         db.Post.findAll({})
             .then(function (data) {
                 res.json(data)
-            })
+            });
 
     });
-}
+};
