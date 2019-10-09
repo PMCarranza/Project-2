@@ -27,15 +27,15 @@ $("#get-cat").on("click", function () {
         // .then() will execute our callback function
         // store the data that comes back from the api as result
         .then(function (result) {
-            // console.log(result);
             var results = result;
             console.log('results should show up below');
             // answer from api will be shown below.
+            var catName = results.name;
+            console.log('catName--> ', catName);
             console.log(results.name);
         });
 
     var catName = $('<p id= "cat-name"></p>');
-    console.log('cat name is --> ', catName);
 
     var catTemperament = $('<p id= "cat-temp"></p>');
 
@@ -43,9 +43,6 @@ $("#get-cat").on("click", function () {
 
     var catDescription = $('<p id= "cat-desc"></p>');
 
-
     $('#cats-here').append(catName, catTemperament, catOrigin, catDescription);
-
-
 
 });
