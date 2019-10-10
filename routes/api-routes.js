@@ -7,13 +7,13 @@ module.exports = function (app) {
 
     app.post("/api/queryUrl", function (req, res) {
 
-        console.log('api-routes--> line 9 --> req.body', req.body.q);
+        console.log('api-routes--> line 9 --> req.body-> ', req.body.q);
         // console.log('api-routes--> res', res);
         var queryStr = req.body.q;
 
         // keys.catsKey.id was changed to keys.catsKey  10/7 7:30pm
-
-        var queryURL = "https://api.thecatapi.com/v1/breeds/search?q=" + queryStr + "&key=" + keys.catsKey.id;
+        // var queryURL = "https://api.thecatapi.com/v1/images/search?breeds/search?q=" + queryStr + "&key=" + keys.catsKey.id;
+        var queryURL = "https://api.thecatapi.com/v1/images/search?breed_id=" + queryStr + "&key=" + keys.catsKey.id;
 
         // https://api.thecatapi.com/v1/breeds/search?q=siam&key=70fc4cdb-bfdc-45da-b9cc-160890df8427
 
@@ -29,16 +29,39 @@ module.exports = function (app) {
         axios.get (queryURL
             // execute a GET method to retrieve information
         ).then(result => {
+            // console.log('result length --> ', result.data.length);
+            // for (var i = 0; i < result.data.length; i++) {
+            //     console.log('i --> ', i);
+            //     console.log(result.data[i].name);
+            //     console.log(result.data[i].temperament);
+            //     console.log(result.data[i].origin);
+            //     console.log(result.data[i].url);
+
+            //     console.log(result.data[i].description);
+            //     res.json(result.data[i]);
+            // };
+
+            // T R Y I N G   T H E S E  T O   G E T   I M A G E S   A S  W E L L
+
             console.log('result length --> ', result.data.length);
             for (var i = 0; i < result.data.length; i++) {
+                console.log('=============RESULT============');
+                console.log(result.data);
+                console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
                 console.log('i --> ', i);
-                console.log(result.data[i].name);
-                console.log(result.data[i].temperament);
-                console.log(result.data[i].origin);
-
-                console.log(result.data[i].description);
+                console.log(result.data[i].url);
+                console.log(result.data[i].breeds[i].name);
+                // console.log(result[i].temperament);
+                // console.log(result[i].origin);
+                // console.log(result[i].description);
                 res.json(result.data[i]);
+                console.log('--------json results-------')
+                console.log(result.data[i].url);
+                console.log(result.data[i].breeds[i].name);
+                console.log('=============json result above==========');
             };
+
+            // ^ ^ ^ F O R   I M A G E S ^ ^ ^ ^
         });
     });
 

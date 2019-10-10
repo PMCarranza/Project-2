@@ -33,16 +33,19 @@ $("#get-cat").on("click", function () {
             var catName = results.name;
             console.log('catName--> ', catName);
             console.log(results.name);
+            // var showCatName=$('<p id= "cat-name"></p>');
+            $('#cats-here').append(results.name);
+            // console.log('showCatName--> ', showCatName);
         });
 
-    var catName = $('<p id= "cat-name"></p>');
+    // var catName = $('<p id= "cat-name"></p>');
 
-    var catTemperament = $('<p id= "cat-temp"></p>');
+    // var catTemperament = $('<p id= "cat-temp"></p>');
 
-    var catOrigin = $('<p id= "cat-origin"></p>');
+    // var catOrigin = $('<p id= "cat-origin"></p>');
 
-    var catDescription = $('<p id= "cat-desc"></p>');
+    // var catDescription = $('<p id= "cat-desc"></p>');
 
-    $('#cats-here').append(catName, catTemperament, catOrigin, catDescription);
+    // $('#cats-here').append(catName, catTemperament, catOrigin, catDescription);
 
 });
