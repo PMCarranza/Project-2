@@ -7,15 +7,15 @@ module.exports = function (app) {
 
     app.post("/api/queryUrl", function (req, res) {
 
-        console.log('api-routes--> line 9 --> req.body-> ', req.body.q);
+        console.log('api-routes--> line 9 this is the user input--> req.body-> ', req.body.q);
         // console.log('api-routes--> res', res);
         var queryStr = req.body.q;
 
-        // keys.catsKey.id was changed to keys.catsKey  10/7 7:30pm
-        // var queryURL = "https://api.thecatapi.com/v1/images/search?breeds/search?q=" + queryStr + "&key=" + keys.catsKey.id;
-        var queryURL = "https://api.thecatapi.com/v1/images/search?breed_id=" + queryStr + "&key=" + keys.catsKey.id;
+        // keys.parksKey.id was changed to keys.parksKey  10/7 7:30pm
+        // var queryURL = "https://api.theparkapi.com/v1/images/search?breeds/search?q=" + queryStr + "&key=" + keys.parksKey.id;
+        var queryURL = "https://www.hikingproject.com/data/get-trails?lat=47.6062&lon=-122.3321&" + queryStr + "&key=" + keys.parksKey.id;
 
-        // https://api.thecatapi.com/v1/breeds/search?q=siam&key=70fc4cdb-bfdc-45da-b9cc-160890df8427
+        // https://api.theparkapi.com/v1/breeds/search?q=siam&key=70fc4cdb-bfdc-45da-b9cc-160890df8427
 
         console.log('api-routes --> query url --> line 15', queryURL);
 
@@ -26,42 +26,27 @@ module.exports = function (app) {
         //     console.log('req2 --> ', req2);
         // })
 
-        axios.get (queryURL
+        axios.get(queryURL
             // execute a GET method to retrieve information
         ).then(result => {
-            // console.log('result length --> ', result.data.length);
-            // for (var i = 0; i < result.data.length; i++) {
-            //     console.log('i --> ', i);
-            //     console.log(result.data[i].name);
-            //     console.log(result.data[i].temperament);
-            //     console.log(result.data[i].origin);
-            //     console.log(result.data[i].url);
 
-            //     console.log(result.data[i].description);
-            //     res.json(result.data[i]);
-            // };
-
-            // T R Y I N G   T H E S E  T O   G E T   I M A G E S   A S  W E L L
-
-            console.log('result length --> ', result.data.length);
-            for (var i = 0; i < result.data.length; i++) {
-                console.log('=============RESULT============');
-                console.log(result.data);
-                console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
+            console.log('result data trails[0] name --> ', result.data.trails[0].name);
+            for (var i = 0; i < result.data.trails.length; i++) {
                 console.log('i --> ', i);
-                console.log(result.data[i].url);
-                console.log(result.data[i].breeds[i].name);
-                // console.log(result[i].temperament);
-                // console.log(result[i].origin);
-                // console.log(result[i].description);
-                res.json(result.data[i]);
-                console.log('--------json results-------')
-                console.log(result.data[i].url);
-                console.log(result.data[i].breeds[i].name);
-                console.log('=============json result above==========');
+                // console.log('=============RESULT============');
+                // console.log(result.data.trails[i].name);
+                // console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
+                console.log('result data trails[i] name', result.data.trails[i].name);
+                console.log('result data trails[i] type', result.data.trails[i].type);
+                console.log('result data trails[i] summary', result.data.trails[i].summary);
+                console.log('result data trails[i] difficulty', result.data.trails[i].difficulty);
+                console.log('result data trails[i] location', result.data.trails[i].location);
+                console.log('result data trails[i] url', result.data.trails[i].url);
+                console.log('result data trails[i] imgSmallMed', result.data.trails[i].imgSmallMed);
+                console.log('result data trails[i] length', result.data.trails[i].length);
+
             };
 
-            // ^ ^ ^ F O R   I M A G E S ^ ^ ^ ^
         });
     });
 
@@ -74,16 +59,16 @@ module.exports = function (app) {
         // }).then
 
         db.User.create({
-            name: "Donald Poz",
-            email: 'donald.poz@gmail.com',
-            password: 'z0x9y8w7'
+            name: "Joy McCullough",
+            email: 'joy@aol.com',
+            password: 'l3k4h5v6'
         }).then(function (data) {
             res.json(data);
         });
 
     });
 
-    app.post("/api/catData", function (req, res) {
+    app.post("/api/parkData", function (req, res) {
 
         // the next three lines are used instead of the dummy data
         // db.User.create(req.body).then(function (data) {
@@ -91,16 +76,18 @@ module.exports = function (app) {
         // }).then
 
         db.Post.create({
-            cat: 'Persian',
-            comments: 'The Persian cat is a long-haired breed of cat characterized by its round face and short muzzle. It is also known as the "Persian Longhair" in the English-speaking countries. In the Middle East, region they are widely known as "Iranian cat" and in Iran they are known as "Shiraz cat".',
+            park: 'Carkeek Park',
+            comments: 'Carkeek Park is a 216 acres park located in the Broadview neighborhood of Seattle, Washington. The park contains Piper Orchard, Pipers Creek, play and picnic areas, picnic shelters, and hiking trails. A pedestrian bridge across the main lines of the BNSF Railway connects to the Carkeek Park sand beach on Puget Sound.',
             UserId: 1
         }).then(function (data) {
             res.json(data);
-        });
+        }).park(function (data) {
+            console.log(data)
+        })
 
     });
 
-    app.get("/api/catData", function (req, res) {
+    app.get("/api/parkData", function (req, res) {
         db.Post.findAll({})
             .then(function (data) {
                 res.json(data)

@@ -1,16 +1,16 @@
 // 'use strict';
 console.log('apiCall.js');
 
-$("#get-cat").on("click", function () {
+$("#get-distance").on("click", function () {
     event.preventDefault();
 
 
-    var catBreed = $('#cat-breed').val().trim();
-    console.log(catBreed);
+    var howFar = $('#how-far').val().trim();
+    console.log('distance from Seattle --> ', howFar);
 
-    var query = catBreed;
+    var query = howFar;
 
-    console.log('apiCall--> line 30--> query ', query);
+    console.log('apiCall--> line 11--> user query ', query);
 
     // use jquery ajax method
     // Asynchronous JavaScript and XML
@@ -27,25 +27,29 @@ $("#get-cat").on("click", function () {
         // .then() will execute our callback function
         // store the data that comes back from the api as result
         .then(function (result) {
-            var results = result;
-            console.log('results should show up below');
-            // answer from api will be shown below.
-            var catName = results.name;
-            console.log('catName--> ', catName);
-            console.log(results.name);
-            // var showCatName=$('<p id= "cat-name"></p>');
-            $('#cats-here').append(results.name);
-            // console.log('showCatName--> ', showCatName);
+            console.log('==========RESULT=========');
+            console.log(result.trails);
+            console.log('^^^^^^^^^RESULT^^^^^^^');
+            // var hikeData = result.breeds[0].alt_names;
+            // var hikeImgUrl = result.url
+            // var hikeDescription = result.breeds[0].description;
+            // var hikeOrigin = result.breeds[0].origin;
+            // console.log('############## hike DATA############');
+            // console.log(hikeData);
+            // console.log(hikeImgUrl);
+            // console.log(hikeDescription);
+            // console.log(hikeOrigin);
+            // console.log('^^^^^^^^^^^hike DATA^^^^^^^^');
+            // console.log('hikeData should show up below');
+            // //answer from api will be shown below.
+            // var hikeName = hikeData;
+            // console.log('hikeName--> ', hikeName);
+            // //var showhikeName=$('<p id= "hike-name"></p>');
+            // $('#info-here').append(hikeName);
+            // $('#park-img').append(hikeImgUrl);
+            // $('#info-here').append(hikeDescription);
+            // $('#info-here').append(hikeOrigin);
+            //console.log('showhikeName--> ', showhikeName);
         });
-
-    // var catName = $('<p id= "cat-name"></p>');
-
-    // var catTemperament = $('<p id= "cat-temp"></p>');
-
-    // var catOrigin = $('<p id= "cat-origin"></p>');
-
-    // var catDescription = $('<p id= "cat-desc"></p>');
-
-    // $('#cats-here').append(catName, catTemperament, catOrigin, catDescription);
 
 });

@@ -4,7 +4,7 @@ console.log('keys.js loaded');
 
 require("dotenv").config();
 
-exports.catsKey = {
+exports.parksKey = {
     // The process.env property returns an object containing the user environment
-    id: process.env.CATS_SECRET
+    id: process.env.PARKS_SECRET
 };

@@ -1,4 +1,4 @@
--- USE cats_db;
+-- USE parks_db;
 
 -- -- statement used to insert new records in a table.
 -- INSERT INTO Users (name, email, password)
