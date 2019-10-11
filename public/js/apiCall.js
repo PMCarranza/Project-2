@@ -28,7 +28,7 @@ $("#get-distance").on("click", function () {
         // store the data that comes back from the api as result
         .then(function (result) {
             console.log('==========RESULT=========');
-            console.log(result.trails);
+            console.log(result);
             console.log('^^^^^^^^^RESULT^^^^^^^');
             // var hikeData = result.breeds[0].alt_names;
             // var hikeImgUrl = result.url

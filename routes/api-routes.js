@@ -30,20 +30,20 @@ module.exports = function (app) {
             // execute a GET method to retrieve information
         ).then(result => {
 
-            console.log('result data trails[0] name --> ', result.data.trails[0].name);
+            // console.log('result data trails[0] name --> ', result.data.trails[0].name);
             for (var i = 0; i < result.data.trails.length; i++) {
                 console.log('i --> ', i);
                 // console.log('=============RESULT============');
                 // console.log(result.data.trails[i].name);
                 // console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
-                console.log('result data trails[i] name', result.data.trails[i].name);
-                console.log('result data trails[i] type', result.data.trails[i].type);
-                console.log('result data trails[i] summary', result.data.trails[i].summary);
-                console.log('result data trails[i] difficulty', result.data.trails[i].difficulty);
-                console.log('result data trails[i] location', result.data.trails[i].location);
-                console.log('result data trails[i] url', result.data.trails[i].url);
-                console.log('result data trails[i] imgSmallMed', result.data.trails[i].imgSmallMed);
-                console.log('result data trails[i] length', result.data.trails[i].length);
+                console.log('result data trails[i] name->', result.data.trails[i].name);
+                console.log('result data trails[i] type->', result.data.trails[i].type);
+                console.log('result data trails[i] summary->', result.data.trails[i].summary);
+                console.log('result data trails[i] difficulty->', result.data.trails[i].difficulty);
+                console.log('result data trails[i] location->', result.data.trails[i].location);
+                console.log('result data trails[i] url->', result.data.trails[i].url);
+                console.log('result data trails[i] imgSmallMed->', result.data.trails[i].imgSmallMed);
+                console.log('result data trails[i] length->', result.data.trails[i].length);
 
             };
 
@@ -59,9 +59,9 @@ module.exports = function (app) {
         // }).then
 
         db.User.create({
-            name: "Joy McCullough",
-            email: 'joy@aol.com',
-            password: 'l3k4h5v6'
+            name: "Marvin Vega",
+            email: 'marvin@hotmail.com',
+            password: 'a1b2c3d4'
         }).then(function (data) {
             res.json(data);
         });
@@ -76,12 +76,12 @@ module.exports = function (app) {
         // }).then
 
         db.Post.create({
-            park: 'Carkeek Park',
-            comments: 'Carkeek Park is a 216 acres park located in the Broadview neighborhood of Seattle, Washington. The park contains Piper Orchard, Pipers Creek, play and picnic areas, picnic shelters, and hiking trails. A pedestrian bridge across the main lines of the BNSF Railway connects to the Carkeek Park sand beach on Puget Sound.',
+            park: 'Green Lake',
+            comments: '2.8 mile walk/jog trail, plenty of green area, sports fields, tennis courts, sandy beach, swimming spots with lifegurads, benches, wadding pool about 10 inches deep open june - august, coffee shops, ice cream shop and restaurants close by.',
             UserId: 1
         }).then(function (data) {
             res.json(data);
-        }).park(function (data) {
+        }).catch(function (data) {
             console.log(data)
         })
 
