@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Park = sequelize.define('Post', {
+    var Park = sequelize.define('Park', {
         park: {
             type: DataTypes.STRING,
             allowNull: false,

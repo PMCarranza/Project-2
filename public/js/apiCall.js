@@ -40,13 +40,28 @@ $("#get-info").on("click", function () {
         // .then() will execute our callback function
         // store the data that comes back from the api as result
         .then(function (result) {
-            // for (var i = 0; i < result.length; i++) {
-                console.log('==========RESULT=========');
-                console.log(result);
-                console.log('^^^^^^^^^RESULT^^^^^^^');
-            // };
+            if (result['campgrounds']) {
+                var data = result.campgrounds
+                for (var i = 0; i < data.length; i++) {
+                    console.log('==========RESULT=========');
+                    console.log(data[i].id);
+                    console.log(data[i].name);
+                    console.log('^^^^^^^^^RESULT^^^^^^^');
+                };
+            } else if (result['trails']) {
+                var data = result.trails
+                for (var i = 0; i < data.length; i++) {
+                    console.log('==========RESULT=========');
+                    console.log(data[i].id);
+                    console.log(data[i].name);
+                    console.log('^^^^^^^^^RESULT^^^^^^^');
+                };
+            }
+            
+            // console.log('number of results in i --> ', i);
+            // var choiceName = result[i].name;
+            // console.log('choiceName--> ', choiceName);
 
-            var choiceName = result.choice[0].name;
             // var choiceType = result.trails[0].type;
             // var choiceImgUrl = result.trails[0].imgSmallMed;
             // var choiceSummary = result.trails[0].summary;

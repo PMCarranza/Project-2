@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var Post = sequelize.define('Post', {
-        comments: {
+        comment: {
             type: DataTypes.TEXT,
             allowNull: true,
             validate:
@@ -8,17 +8,17 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 500]
             }
         },
-        UserId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        }
     });
 
     // Add a belongsTo association to Authors here
 
     Post.associate = function (models) {
         models.Post.belongsTo(models.User, {
-            onDelete: 'CASCADE',
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        models.Post.belongsTo(models.Park, {
             foreignKey: {
                 allowNull: false
             }
