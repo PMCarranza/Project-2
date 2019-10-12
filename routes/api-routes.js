@@ -13,7 +13,7 @@ module.exports = function (app) {
 
         // keys.parksKey.id was changed to keys.parksKey  10/7 7:30pm
         // var queryURL = "https://api.theparkapi.com/v1/images/search?breeds/search?q=" + queryStr + "&key=" + keys.parksKey.id;
-        var queryURL = "https://www.hikingproject.com/data/get-trails?lat=47.6062&lon=-122.3321&" + queryStr + "&key=" + keys.parksKey.id;
+        var queryURL = "https://www.hikingproject.com/data/" + req.body.parkType + "?lat=47.6062&lon=-122.3321&" + queryStr + "&key=" + keys.parksKey.id;
 
         console.log('api-routes --> query url --> line 15', queryURL);
 
@@ -22,24 +22,24 @@ module.exports = function (app) {
         ).then(result => {
 
             // console.log('result data trails[0] name --> ', result.data.trails[0].name);
-            for (var i = 0; i < result.data.trails.length; i++) {
-                console.log('i --> ', i);
-                console.log('=============RESULT============');
-                console.log('result data trails[i] name->', result.data.trails[i].name);
-                console.log('result data trails[i] type->', result.data.trails[i].type);
-                console.log('result data trails[i] summary->', result.data.trails[i].summary);
-                console.log('result data trails[i] difficulty->', result.data.trails[i].difficulty);
-                console.log('result data trails[i] location->', result.data.trails[i].location);
-                console.log('result data trails[i] url->', result.data.trails[i].url);
-                console.log('result data trails[i] imgSmallMed->', result.data.trails[i].imgSmallMed);
-                console.log('result data trails[i] length->', result.data.trails[i].length);
-                console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
+            // for (var i = 0; i < result.data.trails.length; i++) {
+                // console.log('i --> ', i);
+                // console.log('=============RESULT============');
+                // console.log('result data trails[i] name->', result.data.trails[i].name);
+                // console.log('result data trails[i] type->', result.data.trails[i].type);
+                // console.log('result data trails[i] summary->', result.data.trails[i].summary);
+                // console.log('result data trails[i] difficulty->', result.data.trails[i].difficulty);
+                // console.log('result data trails[i] location->', result.data.trails[i].location);
+                // console.log('result data trails[i] url->', result.data.trails[i].url);
+                // console.log('result data trails[i] imgSmallMed->', result.data.trails[i].imgSmallMed);
+                // console.log('result data trails[i] length->', result.data.trails[i].length);
+                // console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
                 res.json(result.data);
                 console.log('--------json results-------')
                 // console.log(result.data);
                 // console.log(result.data[i].trails[i].name);
                 console.log('=============json result above==========');
-            };
+            // };
 
         });
     });
@@ -81,11 +81,37 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/parkData", function (req, res) {
-        db.Post.findAll({})
+    app.get("/api/parks", function (req, res) {
+        db.Park.findAll({
+            // TODO: include the park model to create a join
+        })
             .then(function (data) {
                 res.json(data)
             });
-
     });
+
+    app.get("/api/parks/:id", function (req, res) {
+        db.Park.findOne({
+            where: {
+                id: req.params.id
+            },
+            // TODO: include the park model to create a join
+        })
+            .then(function (data) {
+                res.json(data)
+            });
+    });
+
+    app.post("/api/posts", function (req, res) {
+        // TODO: Research an example of findOrCreate
+        // db.Park.findOrCreate({})
+        //     .then(function (data) {
+        
+        // TODO: db.Post.create() and pass in the ParkId to fulfill the association
+
+        //         res.json(data)
+        //     });
+    });
+
+
 };
