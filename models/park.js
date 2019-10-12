@@ -1,22 +1,21 @@
 module.exports = function (sequelize, DataTypes) {
-    var Post = sequelize.define('Post', {
-        comments: {
-            type: DataTypes.TEXT,
-            allowNull: true,
-            validate:
-            {
-                len: [1, 500]
+    var Park = sequelize.define('Post', {
+        park: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [4]
             }
         },
-        UserId: {
+        parkId: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
     });
 
-    // Add a belongsTo association to Authors here
+    // Add a belongsTo association to user here
 
-    Post.associate = function (models) {
+    Park.associate = function (models) {
         models.Post.belongsTo(models.User, {
             onDelete: 'CASCADE',
             foreignKey: {
@@ -24,5 +23,5 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
-    return Post;
+    return Park;
 };

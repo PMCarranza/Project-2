@@ -7,13 +7,20 @@ module.exports = function (app) {
 
     app.post("/api/queryUrl", function (req, res) {
 
-        console.log('api-routes--> line 9 this is the user input--> req.body-> ', req.body.q);
+        console.log('api-routes--> line 9 this is the user input--> req.body-> ', req.body);
         // console.log('api-routes--> res', res);
-        var queryStr = req.body.q;
+        var distance = req.body.q;
+        console.log('distance --> ', distance);
+        var choice = req.body.c;
+        console.log('choice--> ', choice);
+        var lat = req.body.la;
+        console.log('latitude--> ', lat);
+        var lon = req.body.lo;
+        console.log('longitude--> ', lon);
 
-        // keys.parksKey.id was changed to keys.parksKey  10/7 7:30pm
-        // var queryURL = "https://api.theparkapi.com/v1/images/search?breeds/search?q=" + queryStr + "&key=" + keys.parksKey.id;
-        var queryURL = "https://www.hikingproject.com/data/" + req.body.parkType + "?lat=47.6062&lon=-122.3321&" + queryStr + "&key=" + keys.parksKey.id;
+        // https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200614708-577f9cb92abafd2233a1a3e67f90ed4f;
+        // https://www.hikingproject.com/data/get-campgrounds?lat=40.0274&lon=-105.2519&maxDistance=10&key=200614708-577f9cb92abafd2233a1a3e67f90ed4f
+        var queryURL = "https://www.hikingproject.com/data/get-" + choice + "?lat="+lat+"&lon="+lon+"&maxDistance=" + distance + "&key=" + keys.parksKey.id;
 
         console.log('api-routes --> query url --> line 15', queryURL);
 
@@ -23,22 +30,22 @@ module.exports = function (app) {
 
             // console.log('result data trails[0] name --> ', result.data.trails[0].name);
             // for (var i = 0; i < result.data.trails.length; i++) {
-                // console.log('i --> ', i);
-                // console.log('=============RESULT============');
-                // console.log('result data trails[i] name->', result.data.trails[i].name);
-                // console.log('result data trails[i] type->', result.data.trails[i].type);
-                // console.log('result data trails[i] summary->', result.data.trails[i].summary);
-                // console.log('result data trails[i] difficulty->', result.data.trails[i].difficulty);
-                // console.log('result data trails[i] location->', result.data.trails[i].location);
-                // console.log('result data trails[i] url->', result.data.trails[i].url);
-                // console.log('result data trails[i] imgSmallMed->', result.data.trails[i].imgSmallMed);
-                // console.log('result data trails[i] length->', result.data.trails[i].length);
-                // console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
-                res.json(result.data);
-                console.log('--------json results-------')
-                // console.log(result.data);
-                // console.log(result.data[i].trails[i].name);
-                console.log('=============json result above==========');
+            // console.log('i --> ', i);
+            // console.log('=============RESULT============');
+            // console.log('result data trails[i] name->', result.data.trails[i].name);
+            // console.log('result data trails[i] type->', result.data.trails[i].type);
+            // console.log('result data trails[i] summary->', result.data.trails[i].summary);
+            // console.log('result data trails[i] difficulty->', result.data.trails[i].difficulty);
+            // console.log('result data trails[i] location->', result.data.trails[i].location);
+            // console.log('result data trails[i] url->', result.data.trails[i].url);
+            // console.log('result data trails[i] imgSmallMed->', result.data.trails[i].imgSmallMed);
+            // console.log('result data trails[i] length->', result.data.trails[i].length);
+            // console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
+            res.json(result.data.choice);
+            console.log('--------json results-------')
+            console.log(result.data);
+            // console.log(result.data[i].trails[i].name);
+            console.log('=============json result above==========');
             // };
 
         });
@@ -106,7 +113,7 @@ module.exports = function (app) {
         // TODO: Research an example of findOrCreate
         // db.Park.findOrCreate({})
         //     .then(function (data) {
-        
+
         // TODO: db.Post.create() and pass in the ParkId to fulfill the association
 
         //         res.json(data)
