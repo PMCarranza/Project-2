@@ -15,16 +15,7 @@ module.exports = function (app) {
         // var queryURL = "https://api.theparkapi.com/v1/images/search?breeds/search?q=" + queryStr + "&key=" + keys.parksKey.id;
         var queryURL = "https://www.hikingproject.com/data/get-trails?lat=47.6062&lon=-122.3321&" + queryStr + "&key=" + keys.parksKey.id;
 
-        // https://api.theparkapi.com/v1/breeds/search?q=siam&key=70fc4cdb-bfdc-45da-b9cc-160890df8427
-
         console.log('api-routes --> query url --> line 15', queryURL);
-
-        // app.get(queryURL, function (req2, res2) {
-        //     console.log('api-routes--> res2', res2);
-        //     console.log('api-routes --> req2', req2);
-        //     req2.json('api-routes --> res2', res2);
-        //     console.log('req2 --> ', req2);
-        // })
 
         axios.get(queryURL
             // execute a GET method to retrieve information
@@ -33,9 +24,7 @@ module.exports = function (app) {
             // console.log('result data trails[0] name --> ', result.data.trails[0].name);
             for (var i = 0; i < result.data.trails.length; i++) {
                 console.log('i --> ', i);
-                // console.log('=============RESULT============');
-                // console.log(result.data.trails[i].name);
-                // console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
+                console.log('=============RESULT============');
                 console.log('result data trails[i] name->', result.data.trails[i].name);
                 console.log('result data trails[i] type->', result.data.trails[i].type);
                 console.log('result data trails[i] summary->', result.data.trails[i].summary);
@@ -44,7 +33,12 @@ module.exports = function (app) {
                 console.log('result data trails[i] url->', result.data.trails[i].url);
                 console.log('result data trails[i] imgSmallMed->', result.data.trails[i].imgSmallMed);
                 console.log('result data trails[i] length->', result.data.trails[i].length);
-
+                console.log('^^^^^^^^^^^^RESULT^^^^^^^^^^^');
+                res.json(result.data);
+                console.log('--------json results-------')
+                // console.log(result.data);
+                // console.log(result.data[i].trails[i].name);
+                console.log('=============json result above==========');
             };
 
         });
