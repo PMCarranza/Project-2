@@ -1,7 +1,26 @@
+/* font-family: 'Luckiest Guy', cursive;
+font-family: 'Boogaloo', cursive; */
+
 body{
+  max-width: 90%;
+  margin: auto;
   background-color: azure;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
+}
+
+h1{
+  margin-top: 2.5%;
+  font-family: luckiest Guy, cursive;
+  font-size: 4em;
+  text-align: center;
+  margin-bottom: 2.5%;
+}
+
+h2{
+font-family: Boogaloo, cursive;
+font-size: 3em;
+text-align: center;
 }
 
 form.signup,

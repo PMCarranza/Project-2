@@ -4,19 +4,30 @@ console.log('apiCall.js');
 var lat;
 var long;
 
+//var choice;  // this is in case the function commented out inside on click works
+
 $("#get-info").on("click", function () {
     event.preventDefault();
 
-    var choice = $('#choice').val().trim();
+// $(document).on('click', '#image', function () {
+//     event.preventDefault();
+
+        // $('#choice').click(function () {
+        //     choice = $('#choice').click();
+        // });
+    // });
+    var choice = ($(this).attr('#choice'));
+    // var choice = $('#choice').attributes;
+    console.log('choice--> ', choice);
     var howFar = $('#how-far').val().trim();
 
     console.log('distance from Seattle --> ' + howFar);
-    console.log('choice --> ', choice);
+    // console.log('choice --> ', choice);
     console.log('location --> ', lat+ '/' + lon);
 
     // var distance = howFar;
 
-    console.log('apiCall--> line 11--> user choice--> ', choice);
+    // console.log('apiCall--> line 11--> user choice--> ', choice);
     console.log('apiCall--> line 11--> user distance--> ', howFar);
 
     // use jquery ajax method

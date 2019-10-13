@@ -6,29 +6,61 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/reset.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- style added -->
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Boogaloo|Luckiest+Guy&display=swap');
+    </style>
+    <link href="stylesheets/style.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <h1>Get Out!!</h1>
+    <h1>Go Outside!!</h1>
+    <h2>Pick what you want to do</h2>
+
+    <div id="top-row">
+        <img src="Images/campground.jpg" id="choice" value="campgrounds" title="Photo by Josh Hild on Unsplash"
+            alt="Photo by Josh Hild on Unsplash">
+        <img src="Images/trails.jpg" id="choice" value="trails" title="trails">
+    </div>
 
     <p>Click the button to get your coordinates.</p>
 
     <button onclick="getLocation()">Get your location to start your search</button>
     <p id="demo"></p>
 
-    <p>trails or campgrounds</p>
     <p>Radius to search in Miles?</p>
-
     <form id="user-form">
-
-        <input type="text" id="choice">
+        <!-- <input type="text" id="choice"> -->
         <input type="text" id="how-far"><br>
         <input type="submit" id="get-info">
     </form>
+
+    <div id="bottom-row">
+            <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank">
+                <img src="Images/news.jpg" title="News">
+            </a>
+        <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank">
+            <img src="Images/support.jpg" title="Get Involved">
+        </a>
+        <img src="Images/james-island.jpg">
+        <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank">
+            <img src="Images/food.png" title="Burger drawn by my daughter">
+        </a>
+    </div>
+
+    <!-- <p>trails or campgrounds</p>
+
+    <form id="user-form">
+        <input type="text" id="choice">
+        <input type="text" id="how-far"><br>
+        <input type="submit" id="get-info">
+    </form> -->
 
     <div id="info-here"></div>
     <div id="park-img"></div>
