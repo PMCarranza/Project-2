@@ -4,23 +4,155 @@ font-family: 'Boogaloo', cursive; */
 body{
   max-width: 90%;
   margin: auto;
-  background-color: azure;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
+  background-color:rgba(51, 103, 57, 0.1);
+}
+
+.responsive{
+  width: 100%;
+  height: auto;
+}
+
+div#fondo{
+  margin-top: 2.5%;
+  height:100px;
 }
 
 h1{
-  margin-top: 2.5%;
+  margin-top: -8%;
   font-family: luckiest Guy, cursive;
-  font-size: 4em;
+  font-size: 12vw;
   text-align: center;
-  margin-bottom: 2.5%;
+  margin-bottom: 5%;
+  color: #336739;
 }
 
 h2{
-font-family: Boogaloo, cursive;
-font-size: 3em;
-text-align: center;
+  font-family: Boogaloo, cursive;
+  font-size: 6vw;
+  text-align: center;
+  color: #704e46;
+}
+
+div#top-row{
+  display: flex;
+  justify-content: space-around;  
+}
+
+div#center-row{
+  display: flex;
+  justify-content: space-around;  
+}
+
+div#bottom-row{
+  display: flex;
+  justify-content: space-around;  
+}
+
+.hover-box {
+  background-color: #8F111D;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  max-width: 315px;
+  min-width: 230px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+.hover-box * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.hover-box:before, .hover-box:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  background-color: #336739;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  content: '';
+  opacity: 0.5;
+  z-index: 1;
+}
+.hover-box:before {
+  -webkit-transform: skew(45deg) translateX(-155%);
+  transform: skew(45deg) translateX(-155%);
+}
+.hover-box:after {
+  -webkit-transform: skew(45deg) translateX(155%);
+  transform: skew(45deg) translateX(155%);
+}
+.hover-box img {
+  backface-visibility: hidden;
+  max-width: 100%;
+  vertical-align: top;
+}
+.hover-box figcaption {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  -webkit-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+}
+.hover-box h3 {
+  background-color: #704e46;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+.hover-box a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+.hover-box:hover>img, .hover-box.hover>img {
+  opacity: 0.5;
+}
+.hover-box:hover:before, .hover-box.hover:before {
+  -webkit-transform: skew(45deg) translateX(-55%);
+  transform: skew(45deg) translateX(-55%);
+}
+.hover-box:hover:after, .hover-box.hover:after {
+  -webkit-transform: skew(45deg) translateX(55%);
+  transform: skew(45deg) translateX(55%);
+}
+.hover-box:hover figcaption, .hover-box.hover figcaption {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+#location{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+form#user-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 form.signup,
@@ -32,3 +164,4 @@ form.login {
   font-family: Arial, Helvetica, sans-serif;
   color:red;
 }
+

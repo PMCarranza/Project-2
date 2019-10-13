@@ -20,39 +20,81 @@
 </head>
 
 <body>
+
+    <div id="fondo">
+        <img src="Images/fondo.jpg" alt="bainbridge sland" title="Bainbridge Island" class="responsive">
+    </div>
+
     <h1>Go Outside!!</h1>
     <h2>Pick what you want to do</h2>
 
     <div id="top-row">
-        <img src="Images/campground.jpg" id="choice" value="campgrounds" title="Photo by Josh Hild on Unsplash"
-            alt="Photo by Josh Hild on Unsplash">
-        <img src="Images/trails.jpg" id="choice" value="trails" title="trails">
+
+        <div class="hover-box">
+            <img src="Images/campground.jpg" id="choice" value="campgrounds" title="Photo by Josh Hild on Unsplash"
+                alt="Photo by Josh Hild on Unsplash">
+            <figcaption>
+                <h3>Campgrounds</h3>
+            </figcaption>
+        </div>
+
+        <div class="hover-box">
+            <img src="Images/trails.jpg" id="choice" value="trails" title="trails" alt="trails">
+            <figcaption>
+                <h3>Hikes</h3>
+            </figcaption>
+        </div>
     </div>
 
-    <p>Click the button to get your coordinates.</p>
+    <div id="location">
+        <label>Get coordinates</label>
+        <button onclick="getLocation()">Location</button>
+        <p id="demo"></p>
+    </div>
+    <div id="radius">
+        <form id="user-form">
+            <label>Mile radius to search</label>
+            <input type="text" id="how-far"><br>
+            <input type="submit" id="get-info">
+        </form>
+    </div>
 
-    <button onclick="getLocation()">Get your location to start your search</button>
-    <p id="demo"></p>
+    <div id="center-row">
+        <div class="hover-box">
+            <img src="Images/news.jpg" title="News" alt="news">
+            <figcaption>
+                <h3>News</h3>
+            </figcaption>
+            <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank"></a>
+        </div>
 
-    <p>Radius to search in Miles?</p>
-    <form id="user-form">
-        <!-- <input type="text" id="choice"> -->
-        <input type="text" id="how-far"><br>
-        <input type="submit" id="get-info">
-    </form>
+        <div class="hover-box">
+            <img src="Images/support.jpg" title="Support" alt="support">
+            <figcaption>
+                <h3>Support</h3>
+            </figcaption>
+            <a href="https://www.nps.gov/getinvolved/donate.htm" target="_blank" title="Support" alt="support"> </a>
+        </div>
+    </div>
 
     <div id="bottom-row">
-            <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank">
-                <img src="Images/news.jpg" title="News">
-            </a>
-        <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank">
-            <img src="Images/support.jpg" title="Get Involved">
-        </a>
-        <img src="Images/james-island.jpg">
-        <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank">
-            <img src="Images/food.png" title="Burger drawn by my daughter">
-        </a>
+        <div class="hover-box">
+            <img src="Images/james-island.jpg" target="_blank" title="Get Invoved" alt="get involved">
+            <figcaption>
+                <h3>Get Involved</h3>
+            </figcaption>
+            <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank"></a>
+        </div>
+
+        <div class="hover-box">
+            <img src="Images/food.png" title="Burger drawn by my daughter" alt="Burger drawn by my daughter"></a>
+            <figcaption>
+                <h3>Food</h3>
+            </figcaption>
+            <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank">
+        </div>
     </div>
+
 
     <!-- <p>trails or campgrounds</p>
 
@@ -64,7 +106,6 @@
 
     <div id="info-here"></div>
     <div id="park-img"></div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
