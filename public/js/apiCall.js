@@ -3,6 +3,7 @@ console.log('apiCall.js');
 
 var lat;
 var long;
+var choice;
 
 //var choice;  // this is in case the function commented out inside on click works
 
@@ -16,7 +17,7 @@ $("#get-info").on("click", function () {
         //     choice = $('#choice').click();
         // });
     // });
-    var choice = ($(this).attr('#choice'));
+    choice = ($(this).attr('#choice'));
     // var choice = $('#choice').attributes;
     console.log('choice--> ', choice);
     var howFar = $('#how-far').val().trim();
