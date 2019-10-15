@@ -17,7 +17,7 @@ $("#get-info").on("click", function () {
         //     choice = $('#choice').click();
         // });
     // });
-    choice = ($(this).attr('#choice'));
+    choice = ($(this).attr('choice'));
     // var choice = $('#choice').attributes;
     console.log('choice--> ', choice);
     var howFar = $('#how-far').val().trim();
