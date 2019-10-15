@@ -71,8 +71,8 @@ console.log('SEARCHING FOR PARKS')
             }
             
             // console.log('number of results in i --> ', i);
-            // var choiceName = result[i].name;
-            // console.log('choiceName--> ', choiceName);
+            var choiceName = result;
+            console.log('choiceName--> ', choiceName);
 
             // var choiceType = result.trails[0].type;
             // var choiceImgUrl = result.trails[0].imgSmallMed;

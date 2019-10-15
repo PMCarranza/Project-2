@@ -27,11 +27,10 @@ module.exports = function (app) {
         axios.get(queryURL
             // execute a GET method to retrieve information
         ).then(result => {
-            console.log(result.data);
-
+            // console.log(result.data);
             res.json(result.data);
             console.log('--------json results-------')
-            // console.log(result.data);
+            console.log(result.data);
             console.log('=============json result above==========');
 
         }).catch(error => {
