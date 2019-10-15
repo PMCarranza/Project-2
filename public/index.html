@@ -25,12 +25,31 @@
 
 <body>
 
-    <div id="fondo">
-        <img src="Images/fondo.jpg" alt="bainbridge island" title="Bainbridge Island" class="responsive">
+    <div class="jumbotron">
+        <h1 class="display-3">Go Outside!</h1>
     </div>
 
-    <h1>Go Outside!!</h1>
     <h2>Pick what you want to do</h2>
+
+    <div id="location">
+        <label>Get coordinates</label>
+        <button onclick="getLocation()">Lat/Long</button>
+        <p id="demo"></p>
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Miles away from here:</label>
+        <select id="how-far" class="custom-select" aria-labelledby="dropdownMenuButton">
+            <!-- <option selected value="1">1</option> -->
+            <!-- Setting the option for 5 as default -->
+            <option value="3" selected>3</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
 
     <div id="top-row">
 
@@ -48,18 +67,6 @@
                 <h3>Hikes</h3>
             </figcaption>
         </div>
-    </div>
-
-    <div id="location">
-        <label>Get coordinates</label>
-        <button onclick="getLocation()">Lat/Long</button>
-        <p id="demo"></p>
-    </div>
-    <div id="radius">
-        <form id="user-form">
-            <label>Mile radius to search</label>
-            <input type="text" id="how-far"><br>
-        </form>
     </div>
 
     <div id="center-row">
@@ -97,15 +104,6 @@
             <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank">
         </div>
     </div>
-
-
-    <!-- <p>trails or campgrounds</p>
-
-    <form id="user-form">
-        <input type="text" id="choice">
-        <input type="text" id="how-far"><br>
-        <input type="submit" id="get-info">
-    </form> -->
 
     <div id="info-here"></div>
     <div id="park-img"></div>
