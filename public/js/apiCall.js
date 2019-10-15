@@ -7,9 +7,9 @@ var choice;
 
 //var choice;  // this is in case the function commented out inside on click works
 
-$("#get-info").on("click", function () {
+$(".choice").on("click", function (event) {
     event.preventDefault();
-
+console.log('SEARCHING FOR PARKS')
 // $(document).on('click', '#image', function () {
 //     event.preventDefault();
 
@@ -17,7 +17,7 @@ $("#get-info").on("click", function () {
         //     choice = $('#choice').click();
         // });
     // });
-    choice = ($(this).attr('choice'));
+    choice = ($(this).data('value'));
     // var choice = $('#choice').attributes;
     console.log('choice--> ', choice);
     var howFar = $('#how-far').val().trim();
