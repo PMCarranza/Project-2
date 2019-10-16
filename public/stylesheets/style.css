@@ -35,7 +35,7 @@ h2{
 
 label{
   font-family: boogaloo, cursive;
-  font-size: 200%;
+  font-size: 150%;
   color:#704e46;
   padding-right: 20px;
 }
@@ -44,10 +44,11 @@ div#location{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 1em;
 }
 
 button{
-  margin-top: 10px;
+  margin-top: 5px;
   background-color: #336739;
   border: none;
   color:white;
@@ -66,6 +67,7 @@ button:hover {
 }
 
 p#demo{
+  margin-top: 15px;
   padding-left: 10px;
   font-family: boogaloo, cursive;
   font-size: 14px;
@@ -79,8 +81,8 @@ div.form-group{
 }
 
 select#how-far.custom-select{
-  margin-top: 10px;
-  width: 50px;
+  margin-top: 5px;
+  width: 75px;
   color: whitesmoke;
   background-color: #336739;
 }
@@ -99,7 +101,7 @@ div#center-row{
 div#bottom-row{
   display: flex;
   justify-content: space-around;
-  margin-bottom: 5%;
+ margin-bottom: 5%;
 }
 
 .hover-box {

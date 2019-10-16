@@ -9,13 +9,13 @@ var choice;
 
 $(".choice").on("click", function (event) {
     event.preventDefault();
-console.log('SEARCHING FOR PARKS')
-// $(document).on('click', '#image', function () {
-//     event.preventDefault();
+    console.log('SEARCHING FOR PARKS')
+    // $(document).on('click', '#image', function () {
+    //     event.preventDefault();
 
-        // $('#choice').click(function () {
-        //     choice = $('#choice').click();
-        // });
+    // $('#choice').click(function () {
+    //     choice = $('#choice').click();
+    // });
     // });
     choice = ($(this).data('value'));
     // var choice = $('#choice').attributes;
@@ -24,7 +24,7 @@ console.log('SEARCHING FOR PARKS')
 
     console.log('distance from Seattle --> ' + howFar);
     // console.log('choice --> ', choice);
-    console.log('location --> ', lat+ '/' + lon);
+    console.log('location --> ', lat + '/' + lon);
 
     // var distance = howFar;
 
@@ -69,32 +69,46 @@ console.log('SEARCHING FOR PARKS')
                     console.log('^^^^^^^^^RESULT^^^^^^^');
                 };
             }
-            
+
             // console.log('number of results in i --> ', i);
-            var choiceName = data[0].name;
-            console.log('choiceName--> ', choiceName);
 
-            // var choiceType = result.trails[0].type;
-            // var choiceImgUrl = result.trails[0].imgSmallMed;
-            // var choiceSummary = result.trails[0].summary;
+            // common variables
+            var parkName = data[1].name;
+            var parkLocation = data[1].location;
+            var parkUrl = data[1].url;
 
-            // // var choiceOrigin = result.trails[0].origin;
-            // console.log('############## choice DATA ############');
-            // console.log(choiceName);
-            // console.log(choiceType);
-            // console.log(choiceImgUrl);
-            // console.log(choiceSummary);
-            // console.log('^^^^^^^^^^^choice DATA^^^^^^^^');
-            // // console.log('choiceData should show up below');
-            // // //answer from api will be shown below.
-            // // console.log('choiceName--> ', choiceName);
-            // // //var showchoiceName=$('<p id= "choice-name"></p>');
-            $('#info-here').append(choiceName);
-            // $('#info-here').append(choiceType);
-            // $('#info-here').append(choiceSummary);
-            // $('#park-img').append(choiceImgUrl);
-            // // $('#info-here').append(choiceOrigin);
-            // //console.log('showchoiceName--> ', showchoiceName);
+            console.log('parkName--> ', parkName);
+            console.log('parkLocation--> ', parkLocation);
+            console.log('parkUrl--> ', parkUrl);
+
+            // variables for trails
+            var parkSummary = data[1].summary;
+            var parkPicture = data[1].imgSmallMed;
+            var parkLength = data[1].length;
+
+            console.log('parkSummary--> ', parkSummary);
+            console.log('parkPicture--> ', parkPicture);
+            console.log('parkLength--> ', parkLength);
+
+            // variables for campgrounds
+            var parkBookable = data[1].isBookable;
+            var parkCampground = data[1].isCampground;
+            var parkImage = data[1].imgUrl;
+
+            console.log('parkBookable--> ', parkBookable);
+            console.log('parkCampground--> ', parkCampground);
+            console.log('parkImage--> ', parkImage);
+
+            $('#info-here').append(parkName);
+            $('#info-here').append(parkLocation);
+            $('#first-img').append('<img src=' + parkPicture +'>');
+
+            $('#more-info').append(parkSummary);
+            $('#more-info').append(parkPicture);
+            $('#more-info').append(parkLength);
+
+
+
         });
 });
 
@@ -110,7 +124,7 @@ function getLocation() {
 
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
+        "/Longitude: " + position.coords.longitude;
 
     lat = position.coords.latitude;
     lon = position.coords.longitude;
