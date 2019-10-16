@@ -87,23 +87,6 @@ select#how-far.custom-select{
   background-color: #336739;
 }
 
-div#top-row{
-  display: flex;
-  justify-content: space-around; 
-  margin-bottom: 2.5%;
-}
-
-div#center-row{
-  display: flex;
-  justify-content: space-around;  
-}
-
-div#bottom-row{
-  display: flex;
-  justify-content: space-around;
- margin-bottom: 5%;
-}
-
 .hover-box {
   background-color: #8F111D;
   display: inline-block;
@@ -196,6 +179,23 @@ div#bottom-row{
   -webkit-transform: translate(-50%, -50%) scale(1);
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
+}
+
+div#top-row{
+  display: flex;
+  justify-content: space-around; 
+  margin-bottom: 2.5%;
+}
+
+div#center-row{
+  display: flex;
+  justify-content: space-around;  
+}
+
+div#bottom-row{
+  display: flex;
+  justify-content: space-around;
+  /* margin-bottom: 5%; */
 }
 
 form.signup,
