@@ -1,9 +1,104 @@
 // 'use strict';
+
+$(document).ready(function () {
+    $('.center').slick({
+        // autoplay: autoplay,
+        // autoplaySpeed: 4000,
+        centerMode: true,
+        // centerPadding: '60px',
+        slidesToShow: 4,
+        arrows: true,
+        // speed:5000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: true,
+                    centerMode: true,
+                    // centerPadding: '40px',
+                    slidesToShow: 4
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: true,
+                    centerMode: true,
+                    // centerPadding: '40px',
+                    slidesToShow: 4
+                }
+            }
+        ]
+    });
+});
 console.log('apiCall.js');
+
+console.log('slick is ready!');
+
+
 
 var lat;
 var long;
 var choice;
+
+
+function renderParks(data, type) {
+    // TODO: Iterate around the data array and append html tags for each park returned 
+
+    for (var i = 0; i < 3; i++) {
+        var parkName = data[i].name;
+        var parkLocation = data[i].location;
+        var parkUrl = data[i].url;
+        // console.log('=================DATA===============');
+        // console.log(data);
+        // console.log('==================DATA=============');
+
+        // console.log('parkName--> ', data[i].name);
+        // console.log('parkLocation--> ', parkLocation);
+        // console.log('parkUrl--> ', parkUrl);
+
+        // variables for trails
+        if (type === 'trails') {
+            var trailSummary = data[i].summary;
+            var parkPicture = data[i].imgSmallMed;
+            var trailLength = data[i].length;
+        } else {
+            // variables for campgrounds
+            var campBookable = data[i].isBookable;
+            var campCampground = data[i].isCampground;
+            var parkPicture = data[i].imgUrl;
+        };
+
+        console.log('Park Name -> ' + parkName);
+        // console.log('trailPicture--> ', parkPicture);
+        // console.log('trailLength--> ', trailLength);
+        // console.log('campBookable--> ', campBookable);
+        // console.log('campCampground--> ', campCampground);
+        // console.log('park picture--> ', parkPicture);
+        // console.log('trailSummary--> ', trailSummary);
+
+
+        // $('#park-info').append('Park Name' + parkName);
+
+        $('.center').append(parkName);
+
+        $('.center').append('<img src=' + parkPicture +'>');
+
+        // $('#park-img' + [i]).append('<img src=' + parkPicture + '>');
+        // $('#park-img' + [i]).append('<img src=' + parkPicture + '>');
+
+        $('#camp-box').append(campBookable);
+        $('#camp-box').append(campCampground + '<--');
+
+        $('#general-info').append(trailSummary);
+        $('#trail-box').append(parkLocation);
+        $('#trail-box').append(parkUrl);
+        $('#trail-box').append(trailLength + '<--');
+        // $('#more-info').append(parkPicture);
+        // $('#more-info').append(parkLength);
+
+    }
+}
 
 //var choice;  // this is in case the function commented out inside on click works
 
@@ -52,60 +147,18 @@ $(".choice").on("click", function (event) {
         // .then() will execute our callback function
         // store the data that comes back from the api as result
         .then(function (result) {
+
             if (result['campgrounds']) {
                 var data = result.campgrounds
-                for (var i = 0; i < data.length; i++) {
-                    console.log('==========RESULT=========');
-                    console.log(data[i].id);
-                    console.log(data[i].name);
-                    console.log('^^^^^^^^^RESULT^^^^^^^');
-                };
+                renderParks(data, 'campgrounds')
             } else if (result['trails']) {
                 var data = result.trails
-                for (var i = 0; i < data.length; i++) {
-                    console.log('==========RESULT=========');
-                    console.log(data[i].id);
-                    console.log(data[i].name);
-                    console.log('^^^^^^^^^RESULT^^^^^^^');
-                };
+                renderParks(data, 'trails')
             }
 
             // console.log('number of results in i --> ', i);
 
             // common variables
-            var parkName = data[1].name;
-            var parkLocation = data[1].location;
-            var parkUrl = data[1].url;
-
-            console.log('parkName--> ', parkName);
-            console.log('parkLocation--> ', parkLocation);
-            console.log('parkUrl--> ', parkUrl);
-
-            // variables for trails
-            var parkSummary = data[1].summary;
-            var parkPicture = data[1].imgSmallMed;
-            var parkLength = data[1].length;
-
-            console.log('parkSummary--> ', parkSummary);
-            console.log('parkPicture--> ', parkPicture);
-            console.log('parkLength--> ', parkLength);
-
-            // variables for campgrounds
-            var parkBookable = data[1].isBookable;
-            var parkCampground = data[1].isCampground;
-            var parkImage = data[1].imgUrl;
-
-            console.log('parkBookable--> ', parkBookable);
-            console.log('parkCampground--> ', parkCampground);
-            console.log('parkImage--> ', parkImage);
-
-            $('#info-here').append(parkName);
-            $('#info-here').append(parkLocation);
-            $('#first-img').append('<img src=' + parkPicture +'>');
-
-            $('#more-info').append(parkSummary);
-            $('#more-info').append(parkPicture);
-            $('#more-info').append(parkLength);
 
 
 

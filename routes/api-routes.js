@@ -10,13 +10,13 @@ module.exports = function (app) {
         console.log('api-routes--> line 9 this is the user input--> req.body-> ', req.body);
         // console.log('api-routes--> res', res);
         var distance = req.body.q;
-        console.log('distance --> ', distance);
+        // console.log('distance --> ', distance);
         var choice = req.body.c;
-        console.log('choice--> ', choice);
+        // console.log('choice--> ', choice);
         var lat = req.body.la;
-        console.log('latitude--> ', lat);
+        // console.log('latitude--> ', lat);
         var lon = req.body.lo;
-        console.log('longitude--> ', lon);
+        // console.log('longitude--> ', lon);
 
         // https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200614708-577f9cb92abafd2233a1a3e67f90ed4f;
         // https://www.hikingproject.com/data/get-campgrounds?lat=40.0274&lon=-105.2519&maxDistance=10&key=200614708-577f9cb92abafd2233a1a3e67f90ed4f
@@ -29,9 +29,9 @@ module.exports = function (app) {
         ).then(result => {
             // console.log(result.data);
             res.json(result.data);
-            console.log('--------json results-------')
-            console.log(result.data);
-            console.log('=============json result above==========');
+            // console.log('--------json results-------')
+            // console.log(result.data);
+            // console.log('=============json result above==========');
 
         }).catch(error => {
             console.log(error);

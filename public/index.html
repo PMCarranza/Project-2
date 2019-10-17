@@ -17,126 +17,141 @@
     <link href="stylesheets/style.css" rel="stylesheet">
 
     <!-- S L I C K -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/slick.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
 
 </head>
 
 <body>
 
-    <div class="jumbotron">
-        <h1 class="display-3">Go Outside!</h1>
-    </div>
+    <body onload="getLocation()">
 
-    <h2>Pick what you want to do</h2>
-
-    <div id="location">
-        <label>Get coordinates</label>
-        <button onclick="getLocation()">Lat/Long</button>
-        <p id="demo"></p>
-    </div>
-
-    <div class="form-group">
-        <label for="pwd">Miles away from here:</label>
-        <select id="how-far" class="custom-select" aria-labelledby="dropdownMenuButton">
-            <!-- <option selected value="1">1</option> -->
-            <!-- Setting the option for 5 as default -->
-            <option value="3" selected>3</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-        </select>
-    </div>
-
-    <div id="top-row">
-
-        <div class="hover-box choice" data-value="campgrounds">
-            <img src="Images/campground.jpg" title="Photo by Josh Hild on Unsplash"
-                alt="Photo by Josh Hild on Unsplash">
-            <figcaption>
-                <h3>Campgrounds</h3>
-            </figcaption>
+        <div class="jumbotron">
+            <h1 class="display-3">Go Outside!</h1>
         </div>
 
-        <div class="hover-box choice" data-value="trails">
-            <img src="Images/trails.jpg" title="trails" alt="trails">
-            <figcaption>
-                <h3>Hikes</h3>
-            </figcaption>
-        </div>
-    </div>
+        <h2 id="top-line">Pick what you want to do</h2>
 
-    <div id="center-row">
-        <div class="hover-box">
-            <img src="Images/news.jpg" title="News" alt="news">
-            <figcaption>
-                <h3>News</h3>
-            </figcaption>
-            <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank"></a>
+        <div id="location">
+            <!-- <label>Get coordinates</label>
+        <button onclick="getLocation()">Lat/Long</button> -->
+            <p id="demo"></p>
         </div>
 
-        <div class="hover-box">
-            <img src="Images/support.jpg" title="Support" alt="support">
-            <figcaption>
-                <h3>Support</h3>
-            </figcaption>
-            <a href="https://www.nps.gov/getinvolved/donate.htm" target="_blank" title="Support" alt="support"> </a>
-        </div>
-    </div>
-
-    <div id="bottom-row">
-        <div class="hover-box">
-            <img src="Images/james-island.jpg" target="_blank" title="Get Invoved" alt="get involved">
-            <figcaption>
-                <h3>Get Involved</h3>
-            </figcaption>
-            <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank"></a>
+        <div class="form-group">
+            <label for="pwd">Miles away from here:</label>
+            <select id="how-far" class="custom-select" aria-labelledby="dropdownMenuButton">
+                <!-- <option selected value="1">1</option> -->
+                <!-- Setting the option for 5 as default -->
+                <option value="3" selected>3</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
         </div>
 
-        <div class="hover-box">
-            <img src="Images/food.png" title="Burger drawn by my daughter" alt="Burger drawn by my daughter"></a>
-            <figcaption>
-                <h3>Food</h3>
-            </figcaption>
-            <!-- <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank"> -->
+        <div id="top-row">
+
+            <div class="hover-box choice" data-value="campgrounds">
+                <img src="Images/campground.jpg" title="Photo by Josh Hild on Unsplash"
+                    alt="Photo by Josh Hild on Unsplash">
+                <figcaption>
+                    <h4>Campgrounds</h4>
+                </figcaption>
+            </div>
+
+            <div class="hover-box choice" data-value="trails">
+                <img src="Images/trails.jpg" title="trails" alt="trails">
+                <figcaption>
+                    <h4>Hikes</h4>
+                </figcaption>
+            </div>
         </div>
-    </div>
 
+        <div id="center-row">
+            <div class="hover-box">
+                <img src="Images/news.jpg" title="News" alt="news">
+                <figcaption>
+                    <h4>News</h4>
+                </figcaption>
+                <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank"></a>
+            </div>
 
-    <div id="info-here"></div>
-    <div id="park-img"></div>
+            <div class="hover-box">
+                <img src="Images/support.jpg" title="Support" alt="support">
+                <figcaption>
+                    <h4>Support</h4>
+                </figcaption>
+                <a href="https://www.nps.gov/getinvolved/donate.htm" target="_blank" title="Support" alt="support"> </a>
+            </div>
+        </div>
 
-    <div class="center">
-        <div id="first-img"></div>
-        <div id="second-img"></div>
-        <div id="third-img"></div>
-    </div>
+        <div id="bottom-row">
+            <div class="hover-box">
+                <img src="Images/james-island.jpg" target="_blank" title="Get Invoved" alt="get involved">
+                <figcaption>
+                    <h4>Get Involved</h4>
+                </figcaption>
+                <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank"></a>
+            </div>
 
-    <div id="more-info"></div>
+            <div class="hover-box">
+                <img src="Images/food.png" title="Burger drawn by my daughter" alt="Burger drawn by my daughter"></a>
+                <figcaption>
+                    <h4>Food</h4>
+                </figcaption>
+                <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank"></a>
+            </div>
+        </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/apiCall.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
-    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+        <div id="park-info"></div>
+        <!-- <div id="park-img"></div> -->
+        <div id="trail-box"></div>
+        <div id="camp-box"></div>
+        <div id="general-info"></div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <div class="center">
+            <div>
+                <h3></h3>
+            </div>
+            <div>
+                <h3></h3>
+            </div>
+            <div>
+                <h3></h3>
+            </div>
+            <div>
+                <h3></h3>
+            </div>
+        </div>
 
-    <footer>
-        <a href="https://parks.state.wa.us/alertcenter.aspx" target="_blank">WA State Park Alerts</a>
-        <a href="https://www.youtube.com/user/WashingtonStateParks" target="_blank">Video News</a>
-    </footer>
-</body>
+        </div>
+
+        <div id="more-info"></div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+        <!-- SLICK -->
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+
+        <script type="text/javascript" src="js/apiCall.js"></script>
+
+        <footer>
+            <a href="https://parks.state.wa.us/alertcenter.aspx" target="_blank">WA State Park Alerts</a>
+            <a href="https://www.youtube.com/user/WashingtonStateParks" target="_blank">Video News</a>
+        </footer>
+    </body>
 
 </html>
