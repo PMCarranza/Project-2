@@ -6,7 +6,7 @@ body{
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
-  background-color:rgba(51, 103, 57, 0.1);
+  background-color:rgba(51, 103, 57, 0.15);
 }
 
 .jumbotron{
@@ -70,7 +70,6 @@ p#demo{
   margin-top: 15px;
   padding-left: 10px;
   font-family: boogaloo, cursive;
-  font-size: 14px;
   color:#704e46;
 }
 
@@ -187,28 +186,91 @@ div#top-row{
   margin-bottom: 2.5%;
 }
 
-div#center-row{
-  display: flex;
-  justify-content: space-around;  
-}
-
-div#bottom-row{
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 5%;
-}
-
-form.signup,
-form.login {
-  margin-top: 50px;
-}
-
 div.center{
   font-family: Arial, Helvetica, sans-serif;
   color:red;
 }
 
+#park-name{
+  margin-top: 5%;
+  font-size: 3vw;
+  font-weight: bold;
+  color: #8F111D;
+}
+
+#park-location{
+  font-size: 2vw;
+  font-weight: bold;
+  color: #336739;
+}
+
+#trail-summary{
+  font-size: 2vw;
+  font-weight: bold;
+  color: #704e46;
+}
+
+#trail-length{
+  font-size: 2vw;
+  font-weight: bold;
+  color: #704e46;
+}
+
+#campground{
+  font-size: 2vw;
+  font-weight: bold;
+  color: #704e46;
+}
+
+#bookable{
+  font-size: 2vw;
+  font-weight: bold;
+  color: #704e46;
+}
+
+div#general-info a{
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #704e46;
+}
+
+#general-info{
+  margin-bottom:10%;
+}
+
+div#links a{
+  color:#8F111D;
+  font-size: 2vw;
+}
+
+#links{
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+}
+
+footer a{
+  color:#8F111D;
+  font-size: 1.5vw;
+}
+
 footer{
   margin-top: 10%;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom:5%;
+}
+
+/* #336739   verde */
+
+/* #704e46  cafe */
+
+/* #704e46 */
+
+
+form.signup,
+form.login {
+  margin-top: 50px;
 }
 

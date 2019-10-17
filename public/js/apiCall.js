@@ -11,7 +11,7 @@ $(document).ready(function () {
         // speed:5000,
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 600,
                 settings: {
                     arrows: true,
                     centerMode: true,
@@ -62,40 +62,35 @@ function renderParks(data, type) {
             var trailSummary = data[i].summary;
             var parkPicture = data[i].imgSmallMed;
             var trailLength = data[i].length;
+
+            $('#trail-summary').append(trailSummary);
+            $('#trail-length').append('This trail is: ' + trailLength + ' miles.');
         } else {
             // variables for campgrounds
             var campBookable = data[i].isBookable;
             var campCampground = data[i].isCampground;
             var parkPicture = data[i].imgUrl;
+            $('#campground').append('Are there campgrounds? ' + campCampground);
+            $('#bookable').append('Are they bookable? '+campBookable);
+
         };
 
         console.log('Park Name -> ' + parkName);
-        // console.log('trailPicture--> ', parkPicture);
-        // console.log('trailLength--> ', trailLength);
-        // console.log('campBookable--> ', campBookable);
-        // console.log('campCampground--> ', campCampground);
-        // console.log('park picture--> ', parkPicture);
+
+        console.log('park picture--> ', parkPicture);
         // console.log('trailSummary--> ', trailSummary);
 
 
         // $('#park-info').append('Park Name' + parkName);
 
-        $('.center').append(parkName);
+        $('h3').append(parkName);
 
-        $('.center').append('<img src=' + parkPicture +'>');
+        $('.center').append('<img src=' + parkPicture + '>');
 
-        // $('#park-img' + [i]).append('<img src=' + parkPicture + '>');
-        // $('#park-img' + [i]).append('<img src=' + parkPicture + '>');
+        $('#park-name').append(parkName);
+        $('#park-location').append('Located in: ' + parkLocation);
 
-        $('#camp-box').append(campBookable);
-        $('#camp-box').append(campCampground + '<--');
-
-        $('#general-info').append(trailSummary);
-        $('#trail-box').append(parkLocation);
-        $('#trail-box').append(parkUrl);
-        $('#trail-box').append(trailLength + '<--');
-        // $('#more-info').append(parkPicture);
-        // $('#more-info').append(parkLength);
+        $('#general-info').append('<a href=' + parkUrl + 'target="_blank">Park page</a>');
 
     }
 }
@@ -117,14 +112,14 @@ $(".choice").on("click", function (event) {
     console.log('choice--> ', choice);
     var howFar = $('#how-far').val().trim();
 
-    console.log('distance from Seattle --> ' + howFar);
+    // console.log('distance from Seattle --> ' + howFar);
     // console.log('choice --> ', choice);
-    console.log('location --> ', lat + '/' + lon);
+    // console.log('location --> ', lat + '/' + lon);
 
     // var distance = howFar;
 
     // console.log('apiCall--> line 11--> user choice--> ', choice);
-    console.log('apiCall--> line 11--> user distance--> ', howFar);
+    // console.log('apiCall--> line 11--> user distance--> ', howFar);
 
     // use jquery ajax method
     // Asynchronous JavaScript and XML
@@ -138,7 +133,6 @@ $(".choice").on("click", function (event) {
             c: choice,
             la: lat,
             lo: lon
-
         },
         // execute a POST method to retrieve information
         method: "POST"
@@ -155,13 +149,6 @@ $(".choice").on("click", function (event) {
                 var data = result.trails
                 renderParks(data, 'trails')
             }
-
-            // console.log('number of results in i --> ', i);
-
-            // common variables
-
-
-
         });
 });
 
@@ -177,9 +164,9 @@ function getLocation() {
 
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
-        "/Longitude: " + position.coords.longitude;
+        " / Longitude: " + position.coords.longitude;
 
     lat = position.coords.latitude;
     lon = position.coords.longitude;
-    console.log('lat/log --> ', lat + '/' + lon);
+    // console.log('lat/log --> ', lat + '/' + lon);
 };

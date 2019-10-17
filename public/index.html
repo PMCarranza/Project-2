@@ -41,8 +41,7 @@
             <label for="pwd">Miles away from here:</label>
             <select id="how-far" class="custom-select" aria-labelledby="dropdownMenuButton">
                 <!-- <option selected value="1">1</option> -->
-                <!-- Setting the option for 5 as default -->
-                <option value="3" selected>3</option>
+                <option value="3" selected>5</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -69,48 +68,6 @@
             </div>
         </div>
 
-        <div id="center-row">
-            <div class="hover-box">
-                <img src="Images/news.jpg" title="News" alt="news">
-                <figcaption>
-                    <h4>News</h4>
-                </figcaption>
-                <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank"></a>
-            </div>
-
-            <div class="hover-box">
-                <img src="Images/support.jpg" title="Support" alt="support">
-                <figcaption>
-                    <h4>Support</h4>
-                </figcaption>
-                <a href="https://www.nps.gov/getinvolved/donate.htm" target="_blank" title="Support" alt="support"> </a>
-            </div>
-        </div>
-
-        <div id="bottom-row">
-            <div class="hover-box">
-                <img src="Images/james-island.jpg" target="_blank" title="Get Invoved" alt="get involved">
-                <figcaption>
-                    <h4>Get Involved</h4>
-                </figcaption>
-                <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank"></a>
-            </div>
-
-            <div class="hover-box">
-                <img src="Images/food.png" title="Burger drawn by my daughter" alt="Burger drawn by my daughter"></a>
-                <figcaption>
-                    <h4>Food</h4>
-                </figcaption>
-                <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank"></a>
-            </div>
-        </div>
-
-        <div id="park-info"></div>
-        <!-- <div id="park-img"></div> -->
-        <div id="trail-box"></div>
-        <div id="camp-box"></div>
-        <div id="general-info"></div>
-
         <div class="center">
             <div>
                 <h3></h3>
@@ -128,7 +85,18 @@
 
         </div>
 
-        <div id="more-info"></div>
+        <div id="park-name"></div>
+        <div id="park-location"></div>
+        <div id="trail-summary"></div>
+        <div id="trail-length"></div>
+        <div id="campground"></div>
+        <div id="bookable"></div>
+        <div id="general-info"></div>
+
+        <div id="links">
+            <a href="https://parks.state.wa.us/alertcenter.aspx" target="_blank">WA State Park Alerts</a>
+            <a href="https://www.youtube.com/user/WashingtonStateParks" target="_blank">Video News</a>
+        </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -149,8 +117,10 @@
         <script type="text/javascript" src="js/apiCall.js"></script>
 
         <footer>
-            <a href="https://parks.state.wa.us/alertcenter.aspx" target="_blank">WA State Park Alerts</a>
-            <a href="https://www.youtube.com/user/WashingtonStateParks" target="_blank">Video News</a>
+            <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank">News</a>
+            <a href="https://www.nps.gov/getinvolved/donate.htm" target="_blank">Support</a>
+            <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank">Get Involved</a>
+            <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank">Food Recomendations</a>
         </footer>
     </body>
 
