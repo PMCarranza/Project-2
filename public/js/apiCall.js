@@ -1,5 +1,19 @@
 // 'use strict';
 
+window.onload = function () {
+    $('.slider').slick({
+        autoplay: true,
+        autoplaySpeed: 250,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev"></button>',
+        nextArrow: '<button type="button" class="slick-next"></button>',
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 1
+    });
+    getLocation();
+
+};
 
 console.log('apiCall.js');
 
@@ -52,16 +66,16 @@ function renderParks(data, type) {
         console.log('park picture--> ', parkPicture);
         // console.log('trailSummary--> ', trailSummary);
 
-        var center = $('<div>');
-        center.addClass('center');
-        var title = $('<h3>');
-        title.text(parkName);
+        // var center = $('<div>');
+        // center.addClass('center');
+        // var title = $('<h3>');
+        // title.text(parkName);
 
-        center.append(title)
+        // slider.append(title)
 
-        center.append('<img src=' + parkPicture + '>');
+        $('.slide').append('<img src=' + parkPicture + '>');
 
-        $('#show').append(center);
+        $('h3').append(parkName);
 
         // $('#park-info').append('Park Name' + parkName);
 
@@ -147,36 +161,3 @@ function showPosition(position) {
     lon = position.coords.longitude;
     // console.log('lat/log --> ', lat + '/' + lon);
 };
-
-$(document).ready(function () {
-    $('.center').slick({
-        // setting-name: setting-value,
-        // autoplay: autoplay,
-        // autoplaySpeed: 4000,
-        centerMode: true,
-        // centerPadding: '60px',
-        slidesToShow: 5,
-        arrows: true,
-        // speed:5000,
-        responsive: [
-            {
-                breakpoint: 600,
-                settings: {
-                    arrows: true,
-                    centerMode: true,
-                    // centerPadding: '40px',
-                    slidesToShow: 5
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: true,
-                    centerMode: true,
-                    // centerPadding: '40px',
-                    slidesToShow: 5
-                }
-            }
-        ]
-    });
-});
