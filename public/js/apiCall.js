@@ -1,36 +1,6 @@
 // 'use strict';
 
-$(document).ready(function () {
-    $('.center').slick({
-        // autoplay: autoplay,
-        // autoplaySpeed: 4000,
-        centerMode: true,
-        // centerPadding: '60px',
-        slidesToShow: 4,
-        arrows: true,
-        // speed:5000,
-        responsive: [
-            {
-                breakpoint: 600,
-                settings: {
-                    arrows: true,
-                    centerMode: true,
-                    // centerPadding: '40px',
-                    slidesToShow: 4
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: true,
-                    centerMode: true,
-                    // centerPadding: '40px',
-                    slidesToShow: 4
-                }
-            }
-        ]
-    });
-});
+
 console.log('apiCall.js');
 
 console.log('slick is ready!');
@@ -63,15 +33,17 @@ function renderParks(data, type) {
             var parkPicture = data[i].imgSmallMed;
             var trailLength = data[i].length;
 
-            $('#trail-summary').append(trailSummary);
-            $('#trail-length').append('This trail is: ' + trailLength + ' miles.');
+            // $('#trail-summary').append(trailSummary);
+            // $('#trail-length').append('This trail is: ' + trailLength + ' miles.');
+
         } else {
             // variables for campgrounds
             var campBookable = data[i].isBookable;
             var campCampground = data[i].isCampground;
             var parkPicture = data[i].imgUrl;
-            $('#campground').append('Are there campgrounds? ' + campCampground);
-            $('#bookable').append('Are they bookable? '+campBookable);
+
+            // $('#campground').append('Are there campgrounds? ' + campCampground);
+            // $('#bookable').append('Are they bookable? ' + campBookable);
 
         };
 
@@ -80,18 +52,23 @@ function renderParks(data, type) {
         console.log('park picture--> ', parkPicture);
         // console.log('trailSummary--> ', trailSummary);
 
+        var center = $('<div>');
+        center.addClass('center');
+        var title = $('<h3>');
+        title.text(parkName);
+
+        center.append(title)
+
+        center.append('<img src=' + parkPicture + '>');
+
+        $('#show').append(center);
 
         // $('#park-info').append('Park Name' + parkName);
 
-        $('h3').append(parkName);
+        // $('#park-name').append(parkName);
+        // $('#park-location').append('Located in: ' + parkLocation);
 
-        $('.center').append('<img src=' + parkPicture + '>');
-
-        $('#park-name').append(parkName);
-        $('#park-location').append('Located in: ' + parkLocation);
-
-        $('#general-info').append('<a href=' + parkUrl + 'target="_blank">Park page</a>');
-
+        // $('#general-info').append('<a href=' + parkUrl + 'target="_blank">Park page</a>');
     }
 }
 
@@ -170,3 +147,36 @@ function showPosition(position) {
     lon = position.coords.longitude;
     // console.log('lat/log --> ', lat + '/' + lon);
 };
+
+$(document).ready(function () {
+    $('.center').slick({
+        // setting-name: setting-value,
+        // autoplay: autoplay,
+        // autoplaySpeed: 4000,
+        centerMode: true,
+        // centerPadding: '60px',
+        slidesToShow: 5,
+        arrows: true,
+        // speed:5000,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    arrows: true,
+                    centerMode: true,
+                    // centerPadding: '40px',
+                    slidesToShow: 5
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: true,
+                    centerMode: true,
+                    // centerPadding: '40px',
+                    slidesToShow: 5
+                }
+            }
+        ]
+    });
+});

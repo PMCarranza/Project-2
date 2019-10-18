@@ -14,8 +14,13 @@ body{
   background-image: url(../Images/fondo.jpg);
   background-size: auto;
   margin-bottom: 1.5em;
-  height:200px;
-  padding:10;
+  height: 200px;
+  padding: 10;
+}
+
+h1{
+  height: 150px;
+  border-radius: 20px;
 }
 
 h1.display-3{
@@ -23,7 +28,9 @@ h1.display-3{
   font-size: 10vw;
   text-align: center;
   color: #336739;
-  margin:0 auto;
+  margin-top: -3.5%;
+  padding-top: 20px;
+  background-color: rgba(250, 250, 250, 0.4);
 }
 
 #top-line{
