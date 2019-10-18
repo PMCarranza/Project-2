@@ -1,9 +1,11 @@
 // 'use strict';
+// console.log('apiCall.js');
+// console.log('slick is ready!');
 
 window.onload = function () {
     $('.slider').slick({
         autoplay: true,
-        autoplaySpeed: 250,
+        autoplaySpeed: 1250,
         arrows: true,
         prevArrow: '<button type="button" class="slick-prev"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
@@ -12,109 +14,118 @@ window.onload = function () {
         slidesToScroll: 1
     });
     getLocation();
-
 };
-
-console.log('apiCall.js');
-
-console.log('slick is ready!');
-
-
 
 var lat;
 var long;
 var choice;
 
-
 function renderParks(data, type) {
     // TODO: Iterate around the data array and append html tags for each park returned 
 
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 6; i++) {
+
+        // common variables
         var parkName = data[i].name;
         var parkLocation = data[i].location;
-        var parkUrl = data[i].url;
-        // console.log('=================DATA===============');
-        // console.log(data);
-        // console.log('==================DATA=============');
 
-        // console.log('parkName--> ', data[i].name);
-        // console.log('parkLocation--> ', parkLocation);
-        // console.log('parkUrl--> ', parkUrl);
+        console.log('Park Name -> ' + parkName);
+
+
+        var results = $('<div>');
+        results.addClass('results');
+
+        results.append(parkName + ' is located in ' + parkLocation);
+        // results.append('Type: '+ parkType);
+        $('#results').append(results);
 
         // variables for trails
         if (type === 'trails') {
             var trailSummary = data[i].summary;
             var parkPicture = data[i].imgSmallMed;
             var trailLength = data[i].length;
+            // var parkType = data[i].type;
 
-            // $('#trail-summary').append(trailSummary);
-            // $('#trail-length').append('This trail is: ' + trailLength + ' miles.');
+
+            var trailSumm = $('<div>');
+            trailSumm.addClass('info');
+            var lenghtOfTrail = $('<div>');
+            lenghtOfTrail.addClass('info');
+
+            trailSumm.append(trailSummary);
+            lenghtOfTrail.append('This trail is ' + trailLength + ' miles long');
+
+            $('#results').append(trailSumm);
+            $('#results').append(lenghtOfTrail);
 
         } else {
             // variables for campgrounds
             var campBookable = data[i].isBookable;
-            var campCampground = data[i].isCampground;
+            var campsiteNumb = data[i].numCampsites;
             var parkPicture = data[i].imgUrl;
+            var parkUrl = data[i].url;
 
-            // $('#campground').append('Are there campgrounds? ' + campCampground);
-            // $('#bookable').append('Are they bookable? ' + campBookable);
+            var numCamps = $('<div>');
+            numCamps.addClass('info');
+            var canReserve = $('<div>');
+            canReserve.addClass('info');
+            var webCamp = $('<div>');
+            webCamp.addClass('webadd');
+
+            numCamps.append('Campsites available: ' + campsiteNumb);
+            canReserve.append('is this camp bookable? ' + campBookable);
+            webCamp.append('For more information visit ' + '<a href=' + parkUrl + '>' + parkName + '</a>');
+
+            $('#results').append(numCamps);
+            $('#results').append(canReserve);
+            $('#results').append(webCamp);
 
         };
 
-        console.log('Park Name -> ' + parkName);
 
-        console.log('park picture--> ', parkPicture);
-        // console.log('trailSummary--> ', trailSummary);
+        //////////////////////////////////////
 
-        // var center = $('<div>');
-        // center.addClass('center');
+        //// CONTAINER ID="SHOW" NEEDS TO BE COMMENTED BACK IN HTML
+        //// TO TRY THE FOLLOWING
+        //// main container for carousel
+        // // dynamically creates content but breaks carousel
+        // var slider = $('<div>');
+        // slider.addClass('slider');
+
+        // // title and image container
+        // var slide = $('<div>');
+        // slide.addClass('slide');
+
+        // // title
         // var title = $('<h3>');
         // title.text(parkName);
 
-        // slider.append(title)
+        // slide.append(title);
+        // slide.append('<img src=' + parkPicture + '>');
 
-        $('.slide').append('<img src=' + parkPicture + '>');
+        // $('.slider').append(slide);
 
+        // $('#show').append(slider);
+
+        //// OR THIS W/O CHANGING THE DIV BUT W/O CREATING VAR SLIDER
+        // $('.slider').append(slide);
+
+        ////////////////////////////////////
+
+
+        // These append data to dom but multiplies it
         $('h3').append(parkName);
-
-        // $('#park-info').append('Park Name' + parkName);
-
-        // $('#park-name').append(parkName);
-        // $('#park-location').append('Located in: ' + parkLocation);
-
-        // $('#general-info').append('<a href=' + parkUrl + 'target="_blank">Park page</a>');
-    }
-}
+        $('.slide').append('<img src=' + parkPicture + '>');
+    };
+};
 
 //var choice;  // this is in case the function commented out inside on click works
 
 $(".choice").on("click", function (event) {
     event.preventDefault();
-    console.log('SEARCHING FOR PARKS')
-    // $(document).on('click', '#image', function () {
-    //     event.preventDefault();
 
-    // $('#choice').click(function () {
-    //     choice = $('#choice').click();
-    // });
-    // });
     choice = ($(this).data('value'));
-    // var choice = $('#choice').attributes;
-    console.log('choice--> ', choice);
     var howFar = $('#how-far').val().trim();
-
-    // console.log('distance from Seattle --> ' + howFar);
-    // console.log('choice --> ', choice);
-    // console.log('location --> ', lat + '/' + lon);
-
-    // var distance = howFar;
-
-    // console.log('apiCall--> line 11--> user choice--> ', choice);
-    // console.log('apiCall--> line 11--> user distance--> ', howFar);
-
-    // use jquery ajax method
-    // Asynchronous JavaScript and XML
-    // asynchronous operations run outside of the natural flow of javaScript's single threaded nature
 
     $.ajax({
         // pass in the queryURL
@@ -139,7 +150,7 @@ $(".choice").on("click", function (event) {
             } else if (result['trails']) {
                 var data = result.trails
                 renderParks(data, 'trails')
-            }
+            };
         });
 });
 
@@ -150,7 +161,7 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
-    }
+    };
 };
 
 function showPosition(position) {
@@ -159,5 +170,4 @@ function showPosition(position) {
 
     lat = position.coords.latitude;
     lon = position.coords.longitude;
-    // console.log('lat/log --> ', lat + '/' + lon);
 };

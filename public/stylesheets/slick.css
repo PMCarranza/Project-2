@@ -1,6 +1,6 @@
-html, body{
+/* html, body{
     background: #102131;
-}
+} */
 .slider{
     width:400px;
     margin:20px auto;
@@ -9,10 +9,11 @@ html, body{
     color:white;
 }
 
-.parent-slide{
-    padding:15px;
-}
+/* .parent-slide{
+    padding:5px;
+} */
 
 img{
-    display: block;margin:auto;
+    display: block;
+    margin:auto;
 }
