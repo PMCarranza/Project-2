@@ -16,6 +16,8 @@ window.onload = function () {
     getLocation();
 };
 
+
+
 var lat;
 var long;
 var choice;
@@ -30,7 +32,6 @@ function renderParks(data, type) {
         var parkLocation = data[i].location;
 
         console.log('Park Name -> ' + parkName);
-
 
         var results = $('<div>');
         results.addClass('results');
@@ -89,10 +90,11 @@ function renderParks(data, type) {
         //// TO TRY THE FOLLOWING
         //// main container for carousel
         // // dynamically creates content but breaks carousel
-        // var slider = $('<div>');
-        // slider.addClass('slider');
 
-        // // title and image container
+        // var slider = $('<div class="slider>');
+        // // slider.addClass('slider');
+
+        // //// title and image container
         // var slide = $('<div>');
         // slide.addClass('slide');
 
@@ -103,20 +105,29 @@ function renderParks(data, type) {
         // slide.append(title);
         // slide.append('<img src=' + parkPicture + '>');
 
-        // $('.slider').append(slide);
+        // var slider = $('<div>');
+        // slider.addClass('slider');
+
+        // slider.append(slide);
 
         // $('#show').append(slider);
 
-        //// OR THIS W/O CHANGING THE DIV BUT W/O CREATING VAR SLIDER
+        ////// OR THIS W/O CHANGING THE DIV BUT W/O CREATING VAR SLIDER
         // $('.slider').append(slide);
 
         ////////////////////////////////////
 
-
-        // These append data to dom but multiplies it
-        $('h3').append(parkName);
-        $('.slide').append('<img src=' + parkPicture + '>');
+        // These append data to dom but multiplies of them
+        // $('h3').append(parkName);
+        // $('.slide').append('<img src=' + parkPicture + '>');
     };
+
+    // $('.slider').append(slide);
+
+    // $('#show').append(slider);
+
+    $('h3').append(parkName);
+    $('.slide').append('<img src=' + parkPicture + '>');
 };
 
 //var choice;  // this is in case the function commented out inside on click works
