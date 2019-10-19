@@ -7,8 +7,8 @@ window.onload = function () {
         autoplay: true,
         autoplaySpeed: 1250,
         arrows: true,
-        prevArrow: '<button type="button" class="slick-prev"></button>',
-        nextArrow: '<button type="button" class="slick-next"></button>',
+        // prevArrow: '<button type="button" class="slick-prev"></button>',
+        // nextArrow: '<button type="button" class="slick-next"></button>',
         centerMode: true,
         slidesToShow: 3,
         slidesToScroll: 1
@@ -25,13 +25,15 @@ var choice;
 function renderParks(data, type) {
     // TODO: Iterate around the data array and append html tags for each park returned 
 
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 5; i++) {
 
         // common variables
         var parkName = data[i].name;
         var parkLocation = data[i].location;
+        
 
         console.log('Park Name -> ' + parkName);
+        
 
         var results = $('<div>');
         results.addClass('results');
@@ -45,7 +47,7 @@ function renderParks(data, type) {
             var trailSummary = data[i].summary;
             var parkPicture = data[i].imgSmallMed;
             var trailLength = data[i].length;
-            // var parkType = data[i].type;
+            var parkType = data[i].type;
 
 
             var trailSumm = $('<div>');
@@ -56,6 +58,9 @@ function renderParks(data, type) {
             trailSumm.append(trailSummary);
             lenghtOfTrail.append('This trail is ' + trailLength + ' miles long');
 
+            // $('#show').append(slider);
+            // $('h3').append(parkName);
+            // $('.slide').append('<img src=' + parkPicture + '>');
             $('#results').append(trailSumm);
             $('#results').append(lenghtOfTrail);
 
@@ -91,10 +96,12 @@ function renderParks(data, type) {
         //// main container for carousel
         // // dynamically creates content but breaks carousel
 
-        // var slider = $('<div class="slider>');
-        // // slider.addClass('slider');
+        // var showResult = $('<div id="show">');
 
-        // //// title and image container
+        // var slider = $('<div>');
+        // slider.addClass('slider');
+
+        // // title and image container
         // var slide = $('<div>');
         // slide.addClass('slide');
 
@@ -112,7 +119,9 @@ function renderParks(data, type) {
 
         // $('#show').append(slider);
 
-        ////// OR THIS W/O CHANGING THE DIV BUT W/O CREATING VAR SLIDER
+        // showResult.append(slider);
+
+        //// OR THIS W/O CHANGING THE DIV BUT W/O CREATING VAR SLIDER
         // $('.slider').append(slide);
 
         ////////////////////////////////////
@@ -120,7 +129,10 @@ function renderParks(data, type) {
         // These append data to dom but multiplies of them
         // $('h3').append(parkName);
         // $('.slide').append('<img src=' + parkPicture + '>');
+        // console.log('image'+ parkPicture);
+
     };
+    // console.log('image'+ parkPicture);
 
     // $('.slider').append(slide);
 
