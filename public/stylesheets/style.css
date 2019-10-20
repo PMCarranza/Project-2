@@ -27,7 +27,7 @@ body{
 
 .navbar{
   margin-top: 2.5%;
-  margin-bottom: 2.5%;
+  margin-bottom: 5%;
   background-color: #336739;
 }
   
@@ -47,7 +47,7 @@ a.nav-link {
 }
 
 .jumbotron{
-  margin-top: 4%;
+  /* margin-top: 4%; */
   background-image: url(../Images/fondo.jpg);
   background-repeat: no-repeat;
   background-size: auto;
@@ -64,7 +64,7 @@ h1.display-3{
   text-shadow: 10px 10px 20px whitesmoke;
   text-align: center;
   color: #336739;
-  margin: 0 auto;
+  margin-top: -2%;
 }
 
 #top-line{
