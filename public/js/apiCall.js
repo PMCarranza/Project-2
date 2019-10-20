@@ -25,7 +25,7 @@ var choice;
 function renderParks(data, type) {
     // TODO: Iterate around the data array and append html tags for each park returned 
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 6; i++) {
 
         // common variables
         var parkName = data[i].name;
