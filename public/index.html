@@ -23,6 +23,14 @@
 
 <body>
 
+    <nav class="navbar">
+        <!-- Navbar content -->
+        <!-- <a class="navbar-brand">Welcome</a> -->
+        <a class="nav-link" href="index.html" target="_blank"></a>
+        <a class="nav-link" href="login.html" target="_blank">Log In</a>
+        <a class="nav-link" href="signup.html" target="_blank">Sign Up</a>
+    </nav>
+
     <body onload="getLocation()">
 
         <div class="jumbotron">
@@ -34,19 +42,20 @@
         <div id="location">
             <!-- <label>Get coordinates</label>
         <button onclick="getLocation()">Lat/Long</button> -->
-            <p id="demo"></p>
+            <p id="demo">Your location: </p>
         </div>
 
         <div class="form-group">
             <label for="pwd">Miles away from here:</label>
             <select id="how-far" class="custom-select" aria-labelledby="dropdownMenuButton">
                 <!-- <option selected value="1">1</option> -->
-                <option value="3" selected>5</option>
+                <option value="5" selected>5</option>
                 <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
+                <option value="20">25</option>
                 <option value="50">50</option>
                 <option value="100">100</option>
+                <option value="100">200</option>
+
             </select>
         </div>
 
@@ -123,11 +132,17 @@
 
         <script type="text/javascript" src="js/apiCall.js"></script>
 
-        <footer>
+        <div id="bottom">
             <a href="https://www.nps.gov/aboutus/news/news-releases.htm#sort=score+desc&q=wa" target="_blank">News</a>
             <a href="https://www.nps.gov/getinvolved/donate.htm" target="_blank">Support</a>
             <a href="https://www.nps.gov/getinvolved/index.htm" target="_blank">Get Involved</a>
             <a href="https://www.youtube.com/watch?v=cUYSGojUuAU" target="_blank">Food recommendations</a>
+        </div>
+
+        <footer>
+            <div class="content">
+                2019 Mariño Carranza
+            </div>
         </footer>
     </body>
 

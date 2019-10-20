@@ -1,6 +1,16 @@
 /* font-family: 'Luckiest Guy', cursive;
 font-family: 'Boogaloo', cursive; */
 
+/* #336739   verde */
+
+/* #704e46  cafe */
+
+/* #8F111D */
+
+*{
+  box-sizing: border-box;
+}
+
 body{
   max-width: 90%;
   margin: auto;
@@ -9,8 +19,35 @@ body{
   background-color:rgba(51, 103, 57, 0.15);
 }
 
-.jumbotron{
+/* nav.navbar a.navbar-brand{
+  font-size: 100%;
+  font-weight: bold;
+  color:whitesmoke;
+} */
+
+.navbar{
   margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  background-color: #336739;
+}
+  
+a.nav-link {
+  font-family: 'Boogaloo', arial, sans-serif;
+  font-size: 3vw;
+  font-weight: bold;
+  color:whitesmoke;
+}
+
+.nav-link:hover{
+  background: #8F111D;
+  -webkit-transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+}
+
+.jumbotron{
+  margin-top: 4%;
   background-image: url(../Images/fondo.jpg);
   background-repeat: no-repeat;
   background-size: auto;
@@ -32,7 +69,7 @@ h1.display-3{
 
 #top-line{
   font-family: Boogaloo, cursive;
-  font-size: 6vw;
+  font-size: 7vw;
   text-align: center;
   color: #704e46;
 }
@@ -74,6 +111,7 @@ p#demo{
   margin-top: 15px;
   padding-left: 10px;
   font-family: boogaloo, cursive;
+  font-size: 1.5vw;
   color:#704e46;
 }
 
@@ -239,12 +277,13 @@ div#links a{
   justify-content: space-around;
 }
 
-footer a{
+a{
   color:#8F111D;
   font-size: 1.5vw;
 }
 
-footer{
+#bottom{
+  font-style: none;
   margin-top: 10%;
   font-weight: bold;
   display: flex;
@@ -252,15 +291,18 @@ footer{
   margin-bottom:5%;
 }
 
+footer{
+  background:#336739;
+  padding: 20px 0;
+  clear: both;
+  color: whitesmoke;
+  font-size: 14px;
+  text-align: center;
+}
+
 /* #336739   verde */
 
 /* #704e46  cafe */
 
-/* #704e46 */
-
-
-form.signup,
-form.login {
-  margin-top: 50px;
-}
+/* #8F111D */
 
