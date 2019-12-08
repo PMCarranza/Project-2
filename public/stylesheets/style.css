@@ -236,17 +236,17 @@ h3{
 
 #results{
   background-image: url(../Images/camp-image.png);
-  background-repeat: no-repeat;
-  background-size: 110%;
+  /* background-repeat: no-repeat; */
+  background-size: 100%;
 }
 
 div#results{
-  background-image: url(../Images/camp-image.png);
-  background-repeat: no-repeat;
+  /* background-image: url(../Images/camp-image.png);
+  background-repeat: no-repeat; */
   margin: 5% 5%;
   border-width: 3px;
   border-style: solid;
-  border-radius: 5%;
+  border-radius: 2.5%;
   border-color:#704e46;
   padding: 2em;
 }
