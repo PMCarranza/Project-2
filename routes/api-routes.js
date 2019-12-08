@@ -1,5 +1,5 @@
 console.log('api-routes.js');
-var keys = require("../keys");
+var keys = require("../config/keys");
 var db = require("../models");
 var axios = require("axios");
 
