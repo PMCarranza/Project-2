@@ -1,17 +1,17 @@
 -- USE parks_db;
 
 -- -- statement used to insert new records in a table.
--- INSERT INTO Users (name, email, password)
--- VALUES ('Marvin Vega', 'marvin@hotmail.com', 'a1b2c3d4');
+-- INSERT INTO Users (email, password)
+-- VALUES ('marvin@hotmail.com', 'a1b2c3d4');
 
--- INSERT INTO Users (name, email, password)
--- VALUES ('Donald Poz', 'donald.poz@gmail.com', 'z0x9y8w7');
+-- INSERT INTO Users (email, password)
+-- VALUES ('donald.poz@gmail.com', 'z0x9y8w7');
 
--- INSERT INTO Users (name, email, password)
--- VALUES ('Daniel Gonzalez', 'dgonzalez@yahoo.com', 'q5l4s5h7rt');
+-- INSERT INTO Users (email, password)
+-- VALUES ('dgonzalez@yahoo.com', 'q5l4s5h7rt');
 
--- INSERT INTO Users (name, email, password)
--- VALUES ('Joy McCullough', 'joy@aol.com', 'l3k4h5v6');
+-- INSERT INTO Users (email, password)
+-- VALUES ('joy@aol.com', 'l3k4h5v6');
 
 -- INSERT INTO Posts (park, comments)
 -- VALUES ('Carkeek Park', 'easy and semi-challenging trails, big green area, thre play areas for kids, overlooks puget sound and Bainbridge island, sandy beach, swimming, parasailing.');

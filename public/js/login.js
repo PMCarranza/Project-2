@@ -32,11 +32,11 @@ $(document).ready(function () {
       password: password
     })
       .then(function() {
-        window.location.replace("/members");
+        window.location.replace("/members.html");
         // If there's an error, log the error
       })
       .catch(function(err) {
-        console.log(err);
+        console.log('from login ', err);
       });
   }
 });

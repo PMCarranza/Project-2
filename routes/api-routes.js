@@ -18,11 +18,10 @@ module.exports = function (app) {
         var lon = req.body.lo;
         // console.log('longitude--> ', lon);
 
-        // https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200614708-577f9cb92abafd2233a1a3e67f90ed4f;
-        // https://www.hikingproject.com/data/get-campgrounds?lat=40.0274&lon=-105.2519&maxDistance=10&key=200614708-577f9cb92abafd2233a1a3e67f90ed4f
+
         var queryURL = "https://www.hikingproject.com/data/get-" + choice + "?lat=" + lat + "&lon=" + lon + "&maxDistance=" + distance + "&key=" + keys.parksKey.id;
 
-        console.log('api-routes --> query url --> line 15', queryURL);
+        // console.log('api-routes --> query url --> line 15', queryURL);
 
         axios.get(queryURL
             // execute a GET method to retrieve information
