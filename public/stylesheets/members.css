@@ -64,6 +64,26 @@ form.login {
     color:#704e46;
 } */
 
+#send{
+    background-color: #336739;
+    border: none;
+    font-size: 2vw;
+    color:white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    width:25%;
+    height: 75%;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.6s;
+    cursor: pointer;
+}
+
+#send:hover {
+    background-color: #8F111D;
+    color: white;
+}
+
 footer{
     margin-top: 20%;
     background:#336739;

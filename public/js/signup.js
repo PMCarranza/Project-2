@@ -11,11 +11,9 @@ $(document).ready(function () {
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
-      // name: nameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
-    console.log('USER DATA - -> ', userData.name);
 
     if (!userData.email || !userData.password) {
       return;
@@ -36,14 +34,15 @@ $(document).ready(function () {
       password: password
     })
       .then(function(data) {
-        window.location.replace("/members");
+        window.location.replace("/members.html");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    // console.log(err);
+    // $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
 });
